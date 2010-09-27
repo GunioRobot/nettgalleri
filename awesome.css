@@ -1,0 +1,121 @@
+body {
+	background: #202022;
+	color: #f0f0f0;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+	letter-spacing: -2px;
+	text-align: center;
+	font-size: 3em;
+	margin: 0;
+	padding: 0.3em;
+	text-transform: uppercase;
+}
+
+h2 {
+	letter-spacing: 3px;
+	font-size: 1.5em;
+	text-transform: uppercase;
+}
+
+p {
+	font-size: 0.9em;
+	line-height: 1.3em;
+	text-align: justify;
+}
+
+a {
+	color: #a2c7e5;
+}
+
+#wrap {
+	width: 900px;
+	margin: 0 auto;
+}
+
+#menu {
+	padding-bottom: 1.5em;
+	margin: 0 auto;
+	width: 33.5em;
+	margin-bottom: 1em;
+}
+
+#menu li {
+	float: left;
+	list-style: none;
+	
+}
+
+#menu li:not(:last-child) a {
+	border-right: 1px #555 solid;
+}
+
+#menu li a {
+	color: #ccc;
+	text-decoration: none;
+	padding: 0.6em 1em;
+	text-transform: uppercase;
+	font-size: 0.9em;
+	background: #303033;
+}
+
+#menu li:first-child a {
+	border-radius: 5px 0 0 5px;
+}
+
+#menu li:last-child a {
+	border-radius: 0 5px 5px 0;
+}
+
+#menu li a:hover {
+	background: #404044;
+	color: #fff;
+	cursor: hand !important;
+}
+
+#menu li  {
+	border: none;
+}
+
+hr {
+	border: none;
+	border-bottom: 1px #ccc solid;
+}
+
+#kontakt {
+	text-align: center;
+}
+
+#font-sizer {
+	position: absolute;
+	top: 0;
+	margin-left: 800px;
+}
+
+#font-sizer li {
+	float: left;
+	list-style: none;
+}
+
+#font-sizer li {
+	line-height: 1.5em;
+	padding: 3px;
+}
+
+#font-sizer li a {
+	display: block;
+	cursor: hand;
+}
+
+#font-normal {
+	font-size: 0.9em;
+}
+
+#font-large {
+	font-size: 1.2em;
+}
+
+#font-huge {
+	font-size: 1.5em;
+}
