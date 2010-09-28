@@ -40,8 +40,16 @@ $(document).ready(function() {
 	
 	// Let's try something awesome
 	$('#menu li a').click(function() {
-		$('#content').hide().fadeIn();
+		// Load based on content
+		$('#content').hide()
+					 .load('innhold/' + this.innerHTML.toLowerCase() + '.html')
+					 .fadeIn();
 	});
+	
+	// By default load hjem.html
+	$('#content').hide()
+				 .load('innhold/hjem.html')
+				 .fadeIn();
 });
 
  
