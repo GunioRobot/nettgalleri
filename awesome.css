@@ -131,9 +131,12 @@ hr {
 #imgnum {
 	float: right;
 	margin-top: -2.2em;
-	margin-right: -2.2em;
 }
 
 #imghead {
 	clear: both;
+}
+
+#image {
+	max-width: 900px;
 }
