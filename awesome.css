@@ -48,7 +48,7 @@ a {
 }
 
 #menu li:not(:last-child) a {
-	border-right: 1px #555 solid;
+	border-right: 1px #444 solid;
 }
 
 #menu li a {

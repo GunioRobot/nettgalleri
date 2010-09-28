@@ -12,6 +12,27 @@ function setFonts (m) {
 }
 
 $(document).ready(function() {
+	var ul = document.createElement('ul');
+	ul.id = 'font-sizer';
+	
+	var style = { "font-normal":"", "font-large":"", "font-huge":"" }
+	for (var id in style) {
+		var li = document.createElement('li');
+		ul.appendChild(li);
+		var a = document.createElement('a');
+		a.id = id;
+		a.href = "#";
+		a.innerHTML = 'A';
+		li.appendChild(a);
+	}
+	
+	$('#wrap').get(0).insertBefore(ul, $('#wrap').get(0).firstChild);
+/*	<ul id="font-sizer">
+		<li><a href="#" id="font-normal">A</a></li>
+		<li><a href="#" id="font-large">A</a></li>
+		<li><a href="#" id="font-huge">A</a></li>
+	</ul>*/
+
 	$('#font-sizer li a').click(function() {
 		if (this.id == 'font-normal') {
 			setFonts(1);
