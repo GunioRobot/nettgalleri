@@ -11,7 +11,7 @@ function setFonts (m) {
 	}
 }
 
-function getUrlVars () {
+function getUrlVars() {
 	var v = window.location.href.split('#');
 	v.shift();
 	if (v.length == 0) {
@@ -22,10 +22,21 @@ function getUrlVars () {
 	return args;
 }
 
+
+function loadContent(page) {
+	$('#content').hide()
+				 .load('innhold/' + page + '.html')
+				 .fadeIn();
+				 
+	// Recurse and fallback to home if the page is not found.
+	if (status == 'error') {
+		loadContent('hjem');
+	}
+}
+
 $(document).ready(function() {
 	var ul = document.createElement('ul');
 	ul.id = 'font-sizer';
-	
 	var style = { "font-normal":"", "font-large":"", "font-huge":"" }
 	for (var id in style) {
 		var li = document.createElement('li');
@@ -50,20 +61,23 @@ $(document).ready(function() {
 		}
 	});
 	
-	// Let's try something awesome
-	$('#menu li a').click(function(e) {
+	// Make the menu actually do something, except the langauge
+	$('#menu li a:not(#language)').click(function(e) {
 		// Load based on content
-		$('#content').hide()
-					 .load('innhold/' + this.innerHTML.toLowerCase() + '.html')
-					 .fadeIn();
+		loadContent(this.innerHTML.toLowerCase());
 	});
 	
-	var args = getUrlVars();
+	$('#language').click(function(e) {
+		e.preventDefault();
+		alert("This is where we change the language, but we're fast forwarding to when you are changing back to Norwegian again.");
+	});
 	
-	// By default load hjem.html
-	$('#content').hide()
-				 .load('innhold/' + (args != undefined ? args[0] : 'hjem') + '.html')
-				 .fadeIn();
+	
+	
+	var args = getUrlVars();
+	alert(args);
+	
+	loadContent(args != undefined && args[0] != '' ? args[0] : 'hjem');
 });
 
  
