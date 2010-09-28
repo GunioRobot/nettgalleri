@@ -27,12 +27,7 @@ $(document).ready(function() {
 	}
 	
 	$('#wrap').get(0).insertBefore(ul, $('#wrap').get(0).firstChild);
-/*	<ul id="font-sizer">
-		<li><a href="#" id="font-normal">A</a></li>
-		<li><a href="#" id="font-large">A</a></li>
-		<li><a href="#" id="font-huge">A</a></li>
-	</ul>*/
-
+		
 	$('#font-sizer li a').click(function() {
 		if (this.id == 'font-normal') {
 			setFonts(1);
