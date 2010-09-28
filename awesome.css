@@ -20,9 +20,13 @@ h2 {
 	padding-top: 0.3em;
 }
 
+h3 {
+	font-size: 1.2em;
+}
+
 p {
 	font-size: 0.9em;
-	line-height: 1.3em;
+	line-height: 1.5em;
 	text-align: justify;
 }
 
@@ -137,6 +141,65 @@ hr {
 	clear: both;
 }
 
-#image {
+/* Let's make a fullscreen and normal screen layout */
+.clear {
+	clear: both;
+}
+
+#layout {
+	clear: both;
+}
+
+#layout.fullscreen {
+	
+}
+
+#layout.fullscreen #sidebar {
+	display: none;
+}
+
+#layout.fullscreen #image {
 	max-width: 900px;
+}
+
+#layout.normal {
+	clear: both;
+}
+
+#layout.normal #sidebar {
+	float: left;
+	padding-left: 50px;
+	width: 350px;
+	text-align: justify;
+}
+
+#layout.normal #imgwrap {
+	float: left;
+	width: 500px;
+}
+
+#layout.normal #imgwrap #image {
+	max-width: 500px;
+}
+
+#layout.normal #sidebar #next, #layout.normal #sidebar #prev {
+	padding: 5px 20px;
+	background: #ccc;
+	border-radius: 5px;
+	text-shadow: 0px 1px 0px #fff;
+	color: #000;
+	text-decoration: none;
+	margin-bottom: 2em;
+}
+
+#layout.normal #sidebar #next:hover, #layout.normal #sidebar #prev:hover {
+	background: #eee;
+}
+
+#layout.normal #sidebar #prev {
+	float: left;
+}
+
+#layout.normal #sidebar #next {
+	float: right;
 }
