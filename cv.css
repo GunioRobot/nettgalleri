@@ -1,0 +1,17 @@
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+
+.cv, .cv-head {
+	margin-top: 30px;
+}
+
+.cv th, .cv-head th {
+	text-align: left;
+	font-size: 1.3em;
+}
+
+.cv th, .cv td {
+	padding-right: 1.3em;
+}
