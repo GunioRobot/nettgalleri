@@ -2,7 +2,16 @@
  * Script containing common usability functions for the site.
  * Requires jQuery
  */
-var normal = { "p":"0.9", "h1":"3", "h2":"1.5", "h3":"1.2" }
+var normal = { 
+			 "p":"0.9", 
+			"td":"0.9",
+			"h1":"3", 
+			"h2":"1.5", 
+			"th":"1.5",
+			"h3":"1.2",
+	  "#cv-head":"1.1"
+}
+
 function setFonts (m) {
 	for (var j in normal) {
 		$(j).each(function(el) { 
