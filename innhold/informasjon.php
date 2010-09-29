@@ -1,2 +1,3 @@
-<h2>Informasjon</h2>
-<p>Kthxbai</p>
+<?php
+	include "informasjon.html";
+?>

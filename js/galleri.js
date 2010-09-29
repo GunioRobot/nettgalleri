@@ -40,6 +40,7 @@ function display() {
 	$('#image').hide();
 	$('#imgtitle').get(0).innerHTML = images.bilde[image].tittel;
 	$('#imgnum').get(0).innerHTML = (image + 1) + " / " + images.bilde.length;
+	$('#description').get(0).innerHTML = images.bilde[image].beskrivelse;
 	
 	_display(img);
 }
