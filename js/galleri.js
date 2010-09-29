@@ -1,6 +1,5 @@
 var image = 0;
-var images = {}; //new Array();
-
+var images = {}; // A new JSON object
 
 function next() {
 	image++;

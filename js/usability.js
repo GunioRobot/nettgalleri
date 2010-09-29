@@ -34,7 +34,7 @@ function getUrlVars() {
 
 function loadContent(page) {
 	$('#content').hide()
-				 .load('innhold/' + page + '.html')
+				 .load('innhold/' + page + '.php')
 				 .fadeIn();
 				 
 	// Recurse and fallback to home if the page is not found.
