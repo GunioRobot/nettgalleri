@@ -75,7 +75,6 @@ $(document).ready(function() {
 	
 	
 	var args = getUrlVars();
-	alert(args);
 	
 	loadContent(args != undefined && args[0] != '' ? args[0] : 'hjem');
 });
