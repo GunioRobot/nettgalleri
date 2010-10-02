@@ -181,8 +181,8 @@ hr {
 	max-width: 500px;
 }
 
-#layout.normal #sidebar #next, #layout.normal #sidebar #prev {
-	padding: 5px 20px;
+#layout.normal #sidebar #next, #layout.normal #sidebar #prev, #layout.normal #sidebar #zoomin {
+	padding: 5px;
 	background: #ccc;
 	border-radius: 5px;
 	text-shadow: 0px 1px 0px #fff;
@@ -191,7 +191,20 @@ hr {
 	margin-bottom: 2em;
 }
 
-#layout.normal #sidebar #next:hover, #layout.normal #sidebar #prev:hover {
+#layout.normal #sidebar #zoomin {
+	margin-left: 1em;
+}
+
+#layout.normal #sidebar #zoomin img {
+	height: 30px;
+	margin-bottom: -13px;
+}
+
+#layout.normal #sidebar #next, #layout.normal #sidebar #prev {
+	padding: 5px 20px;
+}
+
+#layout.normal #sidebar #next:hover, #layout.normal #sidebar #prev:hover, #layout.normal #sidebar #zoomin:hover {
 	background: #eee;
 }
 

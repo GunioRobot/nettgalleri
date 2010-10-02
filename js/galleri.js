@@ -58,7 +58,7 @@ $('html').keydown(function(e) {
 
 var fullscreen = false;
 $(document).ready(function() {
-	$('#imgwrap a').click(function(e) {
+	$('#imgwrap a, #zoomin').click(function(e) {
 		fullscreen = !fullscreen;
 		$('#layout').get(0).className = fullscreen ? 'fullscreen' : 'normal';
 	});
