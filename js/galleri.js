@@ -1,3 +1,9 @@
+/**
+ * Bildegalleri
+ *  
+ * VIKTIG AT KODEN BESKRIVES 
+ */
+
 var image = 0;
 var images = {}; // A new JSON object
 

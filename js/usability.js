@@ -1,6 +1,8 @@
 /**
  * Script containing common usability functions for the site.
  * Requires jQuery
+ * 
+ * VIKTIG AT KODEN BESKRIVES 
  */
 var normal = { 
 			 "p":"0.9", 
