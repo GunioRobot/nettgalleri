@@ -33,6 +33,11 @@ a {
 	color: #a2c7e5;
 }
 
+/* Fix for IE and Firefox */
+img {
+	border: none;	
+}
+
 #wrap {
 	width: 900px;
 	margin: 0 auto;
