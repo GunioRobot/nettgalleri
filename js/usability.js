@@ -1,9 +1,9 @@
-/**
+/*
  * Script containing common usability functions for the site.
  * Requires jQuery
- * 
- * VIKTIG AT KODEN BESKRIVES 
  */
+
+// Define default font sizes to be used with the setFonts
 var normal = { 
 			 "p":"0.9", 
 			"td":"0.9",
@@ -14,6 +14,10 @@ var normal = {
 	  "#cv-head":"1.1"
 }
 
+/*
+ * Takes argument m as multiplication. Iterates through defined 
+ * font sizes to increase the size and readability at the site.
+ */
 function setFonts (m) {
 	for (var j in normal) {
 		$(j).each(function(el) { 
@@ -22,9 +26,13 @@ function setFonts (m) {
 	}
 }
 
+/*
+ * Parses the URL parameters passed behind the #
+ * Returns an array of arguments.
+ */
 function getUrlVars() {
 	var v = window.location.href.split('#');
-	v.shift();
+	v.shift(); // Remove the first element, the URL if any
 	if (v.length == 0) {
 		return;
 	}
@@ -33,7 +41,10 @@ function getUrlVars() {
 	return args;
 }
 
-
+/*
+ * Loads the specified page into the content div. Falls back on loading the 
+ * homepage if an error occurs (or the page doesn't exist).
+ */
 function loadContent(page) {
 	$('#content').hide()
 				 .load('innhold/' + page + '.php')
@@ -45,7 +56,10 @@ function loadContent(page) {
 	}
 }
 
+// Handler when document is loaded
 $(document).ready(function() {
+	// Create the font size changer. This isn't useful unless the user has JavaScript,
+	// thus create it here.
 	var ul = document.createElement('ul');
 	ul.id = 'font-sizer';
 	var style = { "font-normal":"", "font-large":"", "font-huge":"" }
@@ -59,8 +73,10 @@ $(document).ready(function() {
 		li.appendChild(a);
 	}
 	
+	// Insert this first thing in the wrap div.
 	$('#wrap').get(0).insertBefore(ul, $('#wrap').get(0).firstChild);
 		
+	// Add on click handler for the font size changer.
 	$('#font-sizer li a').click(function(e) {
 		e.preventDefault();
 		if (this.id == 'font-normal') {
@@ -78,15 +94,14 @@ $(document).ready(function() {
 		loadContent(this.innerHTML.toLowerCase());
 	});
 	
+	// This will do something fancy when the language changer is implemented.
 	$('#language').click(function(e) {
 		e.preventDefault();
 		alert("This is where we change the language, but we're fast forwarding to when you are changing back to Norwegian again.");
 	});
 	
-	
-	
+	// Finally load content based on the specified arguments passed in the URL.
 	var args = getUrlVars();
-	
 	loadContent(args != undefined && args[0] != '' ? args[0] : 'hjem');
 });
 

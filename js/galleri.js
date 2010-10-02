@@ -1,12 +1,15 @@
 /**
- * Bildegalleri
- *  
- * VIKTIG AT KODEN BESKRIVES 
+ * Gallery functions. 
  */
 
-var image = 0;
-var images = {}; // A new JSON object
+// Global variables 
+var image = 0; // The current image shown
+var images = {}; // A new JSON object, to contain information about all available images.
 
+/*
+ * Helper function to simplify the API.
+ * Goes to the next image or to the first if we're at the end
+ */
 function next() {
 	image++;
 	if (image == images.bilde.length) {
@@ -15,6 +18,10 @@ function next() {
 	display();
 }
 
+/*
+ * Helper function to simplify the API.
+ * Goes to the previous image or to the last if we're at the beginning
+ */
 function previous() {
 	image--;
 	if (image < 0) {
@@ -23,7 +30,9 @@ function previous() {
 	display();
 }
 
-		
+/*
+ * When the image is loaded, display the image. Otherwise wait 0.1 seconds and try again.
+ */
 function _display(img) {
 	if (img.complete) {
 		$('#image').show();
@@ -34,8 +43,14 @@ function _display(img) {
 	}
 }
 
+/*
+ * Function to load the image into the page
+ */
 function display() {
 	var img = $('#image').get(0);
+
+	// In order to correctly display the AJAX loader, we have to remove the image element
+	// and create a new one in its place.
 	if (img) {
 		$('#imgwrap a').get(0).removeChild(img);
 	}
@@ -43,15 +58,21 @@ function display() {
 	img.src = "bilder/" + images.bilde[image].filnavn;
 	img.id = 'image';
 	$('#imgwrap a').get(0).appendChild(img);
+
+	// Hide the image to ensure that we see the AJAX loader.
 	$('#image').hide();
+
+	// Updates the page elements with the image data.
+	// TODO: Do we set the alt of the image? We should.
 	$('#imgtitle').get(0).innerHTML = images.bilde[image].tittel;
 	$('#imgnum').get(0).innerHTML = (image + 1) + " / " + images.bilde.length;
 	$('#description').get(0).innerHTML = images.bilde[image].beskrivelse;
 	
+	// Call for the waiter function to load the image fully before displaying it.
 	_display(img);
 }
 
-// Key navigation
+// Keyboard nagivation using the left and right keys.
 $('html').keydown(function(e) {
 	var key = e.which;
 	if (key == 39) {
@@ -62,24 +83,30 @@ $('html').keydown(function(e) {
 });
 
 
+// Global variable to be used with the "fullscreen" mode.
 var fullscreen = false;
+
+// Handler for when the page is loaded
 $(document).ready(function() {
+	// Handler for the zoom in function. 
 	$('#imgwrap a, #zoomin').click(function(e) {
 		fullscreen = !fullscreen;
 		$('#layout').get(0).className = fullscreen ? 'fullscreen' : 'normal';
 	});
 	
+	// Handler for when the next image button is clicked.
 	$('#sidebar #next').click(function(e) { 
 		e.preventDefault();
 		next()
 	});
 	
+	// Handler for when the previous image button is clicked
 	$('#sidebar #prev').click(function(e) {
 		e.preventDefault();
 		previous()
 	});
 	
-	// Let's load the images
+	// Let's load the image information in the page. 
 	$.get("bilder.xml", function(xml) {
 		images = $.xml2json(xml);
 		display();
