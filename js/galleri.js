@@ -57,13 +57,13 @@ function display() {
 	img = document.createElement('img');
 	img.src = "bilder/" + images.bilde[image].filnavn;
 	img.id = 'image';
+	img.alt = images.bilde[image].beskrivelse;
 	$('#imgwrap a').get(0).appendChild(img);
 
 	// Hide the image to ensure that we see the AJAX loader.
 	$('#image').hide();
 
 	// Updates the page elements with the image data.
-	// TODO: Do we set the alt of the image? We should.
 	$('#imgtitle').get(0).innerHTML = images.bilde[image].tittel;
 	$('#imgnum').get(0).innerHTML = (image + 1) + " / " + images.bilde.length;
 	$('#description').get(0).innerHTML = images.bilde[image].beskrivelse;
@@ -71,6 +71,31 @@ function display() {
 	// Call for the waiter function to load the image fully before displaying it.
 	_display(img);
 }
+
+/*
+ *
+ *
+ */
+function addToSelection() {
+	var sel = $.cookie("aweSelection") || '';
+	alert(sel);
+	var elements = sel.split(":");
+	if (elements[0] == '') {
+		elements.shift();
+	}
+
+	for (var i = 0; i < elements.length; i++) {
+		if (elements[i] != '' && elements[i] == image) {
+			alert("Bildet er allerede lagt til i ditt utvalg");
+			return;
+		}
+	}
+	elements.push(image),
+
+	$.cookie("aweSelection", elements.join(":"));
+}
+
+// TODO: Add possibility to remove images from selection. 
 
 // Keyboard nagivation using the left and right keys.
 $('html').keydown(function(e) {
@@ -106,6 +131,11 @@ $(document).ready(function() {
 		previous()
 	});
 	
+	$('#sidebar #favourite').click(function(e) {
+		e.preventDefault();
+		addToSelection();
+	});
+
 	// Let's load the image information in the page. 
 	$.get("bilder.xml", function(xml) {
 		images = $.xml2json(xml);

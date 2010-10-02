@@ -163,7 +163,7 @@ hr {
 }
 
 #layout.fullscreen #image {
-	max-width: 900px;
+	width: 900px; /* Hoping all images are >= 900px, or this gets skewed */
 }
 
 #layout.normal {
@@ -183,37 +183,42 @@ hr {
 }
 
 #layout.normal #imgwrap #image {
-	max-width: 500px;
+	width: 500px; /* Hoping all images are >= 500px, or this gets skewed */
 }
 
 #layout.normal #sidebar #nav a {
-	padding: 5px;
 	background: #ccc;
 	border-radius: 5px;
 	text-shadow: 0px 1px 0px #fff;
 	color: #000;
 	text-decoration: none;
-	margin-bottom: 2em;
+	margin-bottom: 1em;
+	width: 145px;
+	display: block;
+	float: left;
+	padding: 5px 10px;
+	text-align: center;
 }
 
-#layout.normal #sidebar #zoomin {
-	margin: 0 1em;
+#layout.normal #sidebar #nav #next:hover, #layout.normal #sidebar #nav #prev:hover, #layout.normal #sidebar #nav #zoomin:hover, #layout.normal #sidebar #nav #favourite:hover {
+	background-color: #eee;
 }
 
-#layout.normal #sidebar #zoomin img {
-	height: 30px;
-	margin-bottom: -13px;
-	margin-top: 4px;
+#layout.normal #sidebar #nav #next, #layout.normal #sidebar #nav #favourite {
+	float: right;
 }
 
-#layout.normal #sidebar #nav #next, #layout.normal #sidebar #nav #prev {
-	padding: 5px 18px;
+#layout.normal #sidebar #nav #zoomin {
+	background: #ccc url('./zoomin.gif') 14% 50% no-repeat;
 }
 
-#layout.normal #sidebar #next:hover, #layout.normal #sidebar #prev:hover, #layout.normal #sidebar #zoomin:hover {
-	background: #eee;
+#layout.normal #sidebar #nav #zoomin, #layout.normal #sidebar #nav #favourite {
 }
 
-#layout.normal #sideba #nav {
-	margin: 0 auto;
+#layout.normal #sidebar #nav #favourite {
+	background: #ccc url('http://www.scriptgenerator.net/img_gen/add_to_favorites.gif') 0% 50% no-repeat;
+}
+
+#layout.normal #sidebar #nav {
+	text-align: center;
 }
