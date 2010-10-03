@@ -68,6 +68,9 @@ function display() {
 	$('#imgnum').get(0).innerHTML = (image + 1) + " / " + images.bilde.length;
 	$('#description').get(0).innerHTML = images.bilde[image].beskrivelse;
 	
+	// Fix the URL to provide a nice 
+	location.href = location.href.split("#").shift() + "#bilder/" + image;
+	
 	// Call for the waiter function to load the image fully before displaying it.
 	_display(img);
 }
@@ -134,6 +137,11 @@ $(document).ready(function() {
 		e.preventDefault();
 		addToSelection();
 	});
+
+	var args = getUrlVars();
+	if (args[1] != undefined) {
+		image = parseInt(args[1]);
+	}
 
 	// Let's load the image information in the page. 
 	$.get("bilder.xml", function(xml) {
