@@ -187,7 +187,7 @@ hr {
 }
 
 #layout.normal #sidebar #nav a {
-	background: #ccc;
+	background-color: #ccc;
 	border-radius: 5px;
 	text-shadow: 0px 1px 0px #fff;
 	color: #000;
@@ -209,10 +209,7 @@ hr {
 }
 
 #layout.normal #sidebar #nav #zoomin {
-	background: #ccc url('./zoomin.gif') 14% 50% no-repeat;
-}
-
-#layout.normal #sidebar #nav #zoomin, #layout.normal #sidebar #nav #favourite {
+	background: #ccc url('zoomin.gif') 0% 50% no-repeat;
 }
 
 #layout.normal #sidebar #nav #favourite {

@@ -56,6 +56,17 @@ function loadContent(page) {
 	}
 }
 
+/*
+ * Changes the language based on the set cookie.
+ */
+function changeLanguage() {
+	var lang = $.cookie("language") || "no";
+	$.cookie("language", lang == "no" ? "en" : "no");
+
+	// Then reload the page.
+	location.reload();
+}
+
 // Handler when document is loaded
 $(document).ready(function() {
 	// Create the font size changer. This isn't useful unless the user has JavaScript,
@@ -90,14 +101,17 @@ $(document).ready(function() {
 	
 	// Make the menu actually do something, except the langauge
 	$('#menu li a:not(#language)').click(function(e) {
+		e.preventDefault();
+		// We don't want to jump to any anchors in the page, thus...
+		location.href = location.href.split("#").shift() + "#" + this.id;
 		// Load based on content
-		loadContent(this.innerHTML.toLowerCase());
+		loadContent(this.id);
 	});
 	
 	// This will do something fancy when the language changer is implemented.
 	$('#language').click(function(e) {
 		e.preventDefault();
-		alert("This is where we change the language, but we're fast forwarding to when you are changing back to Norwegian again.");
+		changeLanguage();
 	});
 	
 	// Finally load content based on the specified arguments passed in the URL.
