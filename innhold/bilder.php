@@ -1,3 +1,5 @@
 <?php
-	include "bilder.html";
+	include "../functions.php";
+	
+	print translate("bilder.html");
 ?>

@@ -52,4 +52,10 @@ $dictionary["cvsummary7"] = array("no" => "Undervisningshistorie med &aring;rsta
 $dictionary["cvsummary8"] = array("no" => "Oppdrag med &aring;r.", "en" => "Commission with year.", "en" => "");
 $dictionary["cvsummary9"] = array("no" => "Viser medlemskapsoversikt.", "en" => "Showing memberships.");
 
+// Gallery
+$dictionary["prev_img"] = array("no" => "Forrige bilde", "en" => "Previous image");
+$dictionary["next_img"] = array("no" => "Neste bilde", "en" => "Next image");
+$dictionary["zoomin"] = array("no" => "Forst&oslash;rr", "en" => "Zoom in");
+$dictionary["add_to_selection"] = array("no" => "Legg til utvalg", "en" => "Add to selection");
+
 ?>
