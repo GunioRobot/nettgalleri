@@ -1,3 +1,9 @@
 <?php
-	include "innhold/index.html";
+	
+	include "functions.php";
+
+	$content = translate("innhold/index.html");
+	
+	print $content;
+
 ?>

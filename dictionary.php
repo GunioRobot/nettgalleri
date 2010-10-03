@@ -1,7 +1,22 @@
 <?php
 
 $dictionary = array();
-$dictionary[""] = array("no" => "", "en" => "");
+
+// *** Index translation ***
+
+// Menu
+$dictionary["home"] = array("no" => "hjem", "en" => "home");
+$dictionary["pictures"] = array("no" => "bilder", "en" => "pictures");
+$dictionary["information"] = array("no" => "informasjon", "en" => "information");
+$dictionary["review"] = array("no" => "omtale", "en" => "review");
+$dictionary["cv"] = array("no" => "cv", "en" => "cv");
+$dictionary["language"] = array("no" => "english", "en" => "norsk");
+
+// Footer
+$dictionary["gallery"] = array("no" => "Galleri Awesome", "en" => "Gallery awesome");
+$dictionary["created"] = array("no" => "er laget av oss", "en" => "is created by us");
+$dictionary["contact"] = array("no" => "Kontakt", "en" => "Contact");
+
 
 // *** CV translation ***
 
