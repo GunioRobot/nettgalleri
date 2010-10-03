@@ -78,7 +78,6 @@ function display() {
  */
 function addToSelection() {
 	var sel = $.cookie("aweSelection") || '';
-	alert(sel);
 	var elements = sel.split(":");
 	if (elements[0] == '') {
 		elements.shift();
