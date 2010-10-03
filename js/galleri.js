@@ -68,6 +68,13 @@ function display() {
 	$('#imgnum').get(0).innerHTML = (image + 1) + " / " + images.bilde.length;
 	$('#description').get(0).innerHTML = images.bilde[image].beskrivelse;
 	
+	// We have to update the selection text if the image is added in our selection.
+	var selText = $.cookie("language") == "en" ? "Add to selection" : "Legg til utvalg";
+	if (isImageInSelection()) {
+		selText = $.cookie("language") == "en" ? "Remove from selection" : "Fjern fra utvalg";
+	}
+	$('#favourite').get(0).innerHTML = selText;
+	
 	// Fix the URL to provide a nice 
 	location.href = location.href.split("#").shift() + "#bilder/" + image;
 	
@@ -80,22 +87,57 @@ function display() {
  *
  */
 function addToSelection() {
+	var elements = _getSelectionElements();
+
+	elements.push(image),
+
+	$.cookie("aweSelection", elements.join(":"));
+}
+
+function toggleSelection() {
+	var elements = _getSelectionElements();
+	var newText = '';
+	if (isImageInSelection(elements)) {
+		// index HAS to be > -1, or something's screwed with isImageInSelection
+		var index = elements.indexOf(image);
+	
+		// Remove the element
+		elements.splice(index, 1); 
+		
+		newText = $.cookie("language") == "en" ? "Add to selection" : "Legg til utvalg";
+	} else {
+		elements.push(image);
+		
+		newText = $.cookie("language") == "en" ? "Remove from selection" : "Fjern fra utvalg";
+	}
+	$('#favourite').get(0).innerHTML = newText;
+	$.cookie("aweSelection", elements.join(":"));
+}
+
+function removeFromSelection() {
+	var elements = _getSelectionElements();
+}
+
+function _getSelectionElements() {
 	var sel = $.cookie("aweSelection") || '';
 	var elements = sel.split(":");
 	if (elements[0] == '') {
 		elements.shift();
 	}
+	return elements;
+}
 
+function isImageInSelection(elements) {	
+	elements = elements != undefined ? elements : _getSelectionElements();
+	
 	for (var i = 0; i < elements.length; i++) {
 		if (elements[i] != '' && elements[i] == image) {
-			alert("Bildet er allerede lagt til i ditt utvalg");
-			return;
+			return true;
 		}
 	}
-	elements.push(image),
-
-	$.cookie("aweSelection", elements.join(":"));
+	return false;
 }
+
 
 // TODO: Add possibility to remove images from selection. 
 
@@ -135,7 +177,7 @@ $(document).ready(function() {
 	
 	$('#sidebar #favourite').click(function(e) {
 		e.preventDefault();
-		addToSelection();
+		toggleSelection();
 	});
 
 	var args = getUrlVars();
