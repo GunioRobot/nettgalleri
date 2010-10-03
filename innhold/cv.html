@@ -1,17 +1,17 @@
 <link rel="stylesheet" href="cv.css" type="text/css" />
 
 <p id="cv-head">
-	<strong>Navn:</strong> Margrethe Hauglie-Hanssen<br />
-	<strong>F&oslash;dt:</strong> 14.12.1956<br />
-	<strong>Adresse:</strong> &Oslash;vreveien 74, 1450 Nesoddtangen<br />
-	<strong>Telefon:</strong> 66 91 70 68<br />
-	<strong>Mobiltelefon:</strong> 917 73 081
+	<strong>${name}:</strong> Margrethe Hauglie-Hanssen<br />
+	<strong>${born}:</strong> 14.12.1956<br />
+	<strong>${address}:</strong> &Oslash;vreveien 74, 1450 Nesoddtangen<br />
+	<strong>${phone}:</strong> 66 91 70 68<br />
+	<strong>${mobile}:</strong> 917 73 081
 </p>
 
-<table class="cv" cellpadding="0" cellspacing="0" summary="Utdanningsoversikt med sted og tidsrom.">
+<table class="cv" cellpadding="0" cellspacing="0" summary="${cvsummary1}">
 <tr>
-<th id="header1">Utdanning</th>
-<th id="header2">Tidsrom</th>
+<th id="header1">${education}</th>
+<th id="header2">${period}</th>
 </tr>
 
 <tr>
@@ -30,18 +30,13 @@
 <td headers="header2">1997</td>
 </tr>
 
-<tr>
-<td headers="header1"></td>
-<td headers="header2"></td>
-</tr>
-
 </table>
 
 
-<table class="cv" cellpadding="0" cellspacing="0" summary="Oversikt over stipend med &aring;rstall.">
+<table class="cv" cellpadding="0" cellspacing="0" summary="${cvsummary2}">
 <tr>
-<th id="header3">Stipend</th>
-<th id="header4">&Aring;r</th>
+<th id="header3">${fellowship}</th>
+<th id="header4">${year}</th>
 </tr>
 
 <tr>
@@ -61,11 +56,11 @@
 </table>
 
 
-<table class="cv" cellpadding="0" cellspacing="0" summary="Separatutstillinger og &aring;rstall.">
+<table class="cv" cellpadding="0" cellspacing="0" summary="${cvsummary3}">
 
 <tr>
-<th id="header5">Separatutstillinger</th>
-<th id="header6">&Aring;r</th>
+<th id="header5">${separateExhibits}</th>
+<th id="header6">${year}</th>
 </tr>
 
 <tr>
@@ -91,11 +86,11 @@
 </table>
 
 
-<table class="cv" cellpadding="0" cellspacing="0" summary="Oversikt over gruppe- og kollektivutstillinger, med &aring;r.">
+<table class="cv" cellpadding="0" cellspacing="0" summary="${cvsummary4}">
 
 <tr>
-<th id="header7">Gruppe- og Kollektivutstillinger</th>
-<th id="header8">&Aring;r</th>
+<th id="header7">${groupCollectiveExhibits}</th>
+<th id="header8">${year}</th>
 </tr>
 
 <tr>
@@ -111,11 +106,11 @@
 </table>
 
 
-<table class="cv" cellpadding="0" cellspacing="0" summary="&Aring;rs- og landsdelsutstillinger med &aring;r.">
+<table class="cv" cellpadding="0" cellspacing="0" summary="${cvsummary5}">
 
 <tr>
-<th id="header9">&Aring;rs- og landsdelsutstillinger</th>
-<th id="header10">&Aring;r</th>
+<th id="header9">${provinceExhibits}</th>
+<th id="header10">${year}</th>
 </tr>
 
 <tr>
@@ -126,11 +121,11 @@
 </table>
 
 
-<table class="cv" cellpadding="0" cellspacing="0" summary="Utsmykningsoppdrag">
+<table class="cv" cellpadding="0" cellspacing="0" summary="${cvsummary6}">
 
 <tr>
-<th id="header11">Utsmykningsoppdrag</th>
-<th id="header12">&Aring;r</th>
+<th id="header11">${ornamentExhibits}</th>
+<th id="header12">${year}</th>
 </tr>
 
 <tr>
@@ -141,11 +136,11 @@
 </table>
 
 
-<table class="cv" cellpadding="0" cellspacing="0" summary="Undervisningshistorie med &aring;rstall.">
+<table class="cv" cellpadding="0" cellspacing="0" summary="${cvsummary7}">
 
 <tr>
-<th id="header13">Undervisning</th>
-<th id="header14">Periode</th>
+<th id="header13">${tuition}</th>
+<th id="header14">${period}</th>
 </tr>
 
 <tr>
@@ -156,11 +151,11 @@
 </table>
 
 
-<table class="cv" cellpadding="0" cellspacing="0" summary="Oppdrag med &aring;r.">
+<table class="cv" cellpadding="0" cellspacing="0" summary="${summary8}">
 
 <tr>
-<th id="header15">Undervisning</th>
-<th id="header16">Periode</th>
+<th id="header15">${commission}</th>
+<th id="header16">${period}</th>
 </tr>
 
 <tr>
@@ -171,10 +166,10 @@
 </table>
 
 
-<table class="cv" cellpadding="0" cellspacing="0" summary="Medlemskapsoversikt">
+<table class="cv" cellpadding="0" cellspacing="0" summary="${cvsummary9}">
 
 <tr>
-<th>Medlemskap</th>
+<th>${membership}</th>
 </tr>
 
 <tr>
