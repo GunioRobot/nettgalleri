@@ -2,13 +2,8 @@
 	
 	include "functions.php";
 	
-	$request = $_SERVER['PHP_SELF'];
-	$dictionary['content'] = load_content($request);
+	$request = substr($_SERVER['REQUEST_URI'], 1);
+	$dictionary['content'] =  array($lang => load_content($request));
 	$file = "innhold/index.html";
-	print translate(translate($file));
-
-	$content = translate("innhold/index.html");
-	
-	print $content;
-
+	print translate($file);
 ?>

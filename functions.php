@@ -22,7 +22,7 @@ function translate($filename) {
 	global $lang, $dictionary;
 
 	// Get all keywords
-	$contents = get_file_content($filename);
+	$contents = file_exists($filename) ? file_get_contents($filename) : $filename;
 
 	// Get all text that should be translated
 	preg_match_all('/\${([^}]+)}/', $contents, $matches);
@@ -36,28 +36,26 @@ function translate($filename) {
 }
 
 function load_content($file) {
-
-	if($file == "bilder.php") {
+	if($file == "bilder") {
 
 	
-	} else if($file == "language.php") {
+	} else if($file == "language") {
 		if(!isset($_COOKIE['language'])) {
 			setcookie("language", "en");	
 		} else if($_COOKIE['language'] == "no") {
-			$_COOKIE['language'] = "en";
+			setcookie("language", "en"); 
 		} else {
-			$_COOKIE['language'] = "no";
+			setcookie("language", "no"); 
 		}
 
-		$returl = $SERVER['PHP_SELF'];
+		$returl = $_SERVER['HTTP_REFERER'];
 		header("Location: $returl");
 
 	} else {
-		$file = "/innhold/$file.html";
-
+		$file = "innhold/$file.html";
 		if(file_exists($file)) {
-			$contents = get_file_content($filename);
-			return $contents;
+			$contents = file_get_contents($file);
+			return translate($contents);
 		}
 	}
 	return;
