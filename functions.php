@@ -28,11 +28,15 @@ function translate($filename) {
 	return $contents;
 }
 
-function loadContent() {
-	$request = $_SERVER['SERVER_URI'];
+function loadContent($file) {
 
-	print "req: $request";
+	if($file == "bilder.php") {
 	
+	} else if($file == "language.php") {
+
+	} else {
+		include("innhold/$file");
+	}
 
 }
 
