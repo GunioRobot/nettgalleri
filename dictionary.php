@@ -6,7 +6,7 @@ $dictionary = array();
 
 // Menu
 $dictionary["home"] = array("no" => "hjem", "en" => "home");
-$dictionary["pictures"] = array("no" => "bilder", "en" => "pictures");
+$dictionary["pictures"] = array("no" => "galleri", "en" => "gallery");
 $dictionary["information"] = array("no" => "informasjon", "en" => "information");
 $dictionary["review"] = array("no" => "omtale", "en" => "review");
 $dictionary["cv"] = array("no" => "cv", "en" => "cv");
