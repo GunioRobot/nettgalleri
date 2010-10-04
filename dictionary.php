@@ -58,4 +58,8 @@ $dictionary["next_img"] = array("no" => "Neste bilde", "en" => "Next image");
 $dictionary["zoomin"] = array("no" => "Forst&oslash;rr", "en" => "Zoom in");
 $dictionary["add_to_selection"] = array("no" => "Legg til utvalg", "en" => "Add to selection");
 
+// Selection
+$dictionary["no_img_selection"] = array("no" => "Du har ingen bilder i ditt utvalg", "en" => "There are no images in your selection");
+$dictionary["help_img_selection"] = array("no" => "Du kan legge bilder til ditt utvalg ved å trykke på legg til utvalg-knappen i galleriet. Bildene som blir lagt til vil da vises på denne siden.", "en" => "You can add images to your selection by clicking the add to selection button in the gallery. The images added will then be shown at this page.");
+$dictionary["share_img_selection"] = array("no" => "Del ditt utvalg", "en" => "Share your selection");
 ?>

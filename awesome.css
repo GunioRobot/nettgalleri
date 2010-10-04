@@ -21,6 +21,8 @@ h2, th {
 
 h3 {
 	font-size: 1.2em;
+	text-transform: uppercase;
+	margin: 0;
 }
 
 p, td {
@@ -44,9 +46,10 @@ img {
 }
 
 #menu {
+	padding: 0;
 	padding-bottom: 1.5em;
 	margin: 0 auto;
-	width: 33.5em;
+	width: 41em;
 	margin-bottom: 1em;
 }
 
@@ -222,4 +225,12 @@ hr {
 
 #layout.normal #sidebar #nav {
 	text-align: center;
+}
+
+#info {
+	display: none;
+}
+
+#share {
+	margin-bottom: 1em;
 }
