@@ -28,4 +28,16 @@ function translate($filename) {
 	return $contents;
 }
 
+function loadContent($file) {
+
+	if($file == "bilder.php") {
+	
+	} else if($file == "language.php") {
+
+	} else {
+		include("innhold/$file");
+	}
+
+}
+
 ?>

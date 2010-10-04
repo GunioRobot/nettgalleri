@@ -2,8 +2,8 @@
 	
 	include "functions.php";
 
-	$content = translate("innhold/index.html");
-	
-	print $content;
+	//$dictionary['content'] = loadContent();
+
+	print translate("innhold/index.html");
 
 ?>
