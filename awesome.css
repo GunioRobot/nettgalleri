@@ -224,3 +224,7 @@ hr {
 #layout.normal #sidebar #nav {
 	text-align: center;
 }
+
+#info {
+	display: none;
+}

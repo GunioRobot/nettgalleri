@@ -133,7 +133,8 @@ function toggleSelection() {
 	
 	if (images.bilde.length == 0) {
 		// If we have no images in the selection, we have to tell the user about it.
-		$('#layout').get(0).innerHTML = "<h2>" + ($.cookie("language") == "en" ? "There are no images in your selection" : "Du har ingen bilder i ditt utvalg") + "</h2>";
+		$('#layout').hide();
+		$('#info').show();
 	}
 	$.cookie("aweSelection", elements.join(":"));
 }
@@ -223,10 +224,8 @@ $(document).ready(function() {
 			}
 			if (images.bilde.length == 0) {
 				// If we have no images in the selection, we have to tell the user about it.
-				$('#layout').get(0).innerHTML = "<h2>" + ($.cookie("language") == "en" ? 
-														"There are no images in your selection" : 
-														"Du har ingen bilder i ditt utvalg")
-											  + "</h2>";
+				$('#layout').hide();
+				$('#info').show();
 			}
 		}
 		
