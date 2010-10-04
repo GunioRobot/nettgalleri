@@ -28,4 +28,12 @@ function translate($filename) {
 	return $contents;
 }
 
+function loadContent() {
+	$request = $_SERVER['SERVER_URI'];
+
+	print "req: $request";
+	
+
+}
+
 ?>
