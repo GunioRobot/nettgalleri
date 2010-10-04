@@ -77,13 +77,32 @@ function display() {
 	$('#favourite').get(0).innerHTML = selText;
 	
 	// Fix the URL to provide a nice 
-	location.href = location.href.split("#").shift() + "#" + args[0] + "/" + getFilename(image);
+	writeURL();
 	
 	// Call for the waiter function to load the image fully before displaying it.
 	_display(img);
 }
 
+function writeURL() {
+	location.href = location.href.split("#").shift() + "#" + args[0];
+	var filename = getFilename(image);
+	if (filename == undefined) {
+		return;
+	}
+	location.href += "/" + filename;
+	if (args[0] == 'utvalg') {
+		var code = generateShareURL();
+		if (code != '') {
+			location.href += "/" + code;
+		}
+		setShareURLs();
+	}
+}
+
 function getFilename(img) {
+	if (images.bilde[img] == undefined) {
+		return;
+	}
 	var filename = images.bilde[img].filnavn;
 	return filename.substr(0, filename.length-4);
 }
@@ -111,32 +130,39 @@ function toggleSelection() {
 	
 		// Remove the element
 		elements.splice(index, 1);
+		$.cookie("aweSelection", elements.join(":"));
 		
 		if (args[0] == 'utvalg') {
 			// If we're in the selection, we have to remove it from the images array and go to the next image
 			images.bilde.splice(image, 1);
-		
-			if (images.bilde.length > 0 && image == images.bilde.length) {
-				previous();
-			} else if (images.bilde.length > 0) {
-				display();
+			
+			if (images.bilde.length > 0) {
+				if (image == images.bilde.length) {
+					previous();
+				} else if (images.bilde.length > 0) {
+					display();
+				}
+			} else {
+				if (images.bilde.length == 0) {
+					// If we have no images in the selection, we have to tell the user about it.
+					$('#layout').hide();
+					$('#info').show();
+				}
 			}
 		} else {
 			$('#favourite').get(0).innerHTML = $.cookie("language") == "en" ? "Add to selection" : "Legg til utvalg";
+			
 		}
 	} else {
 		// We have not added the image to the selection, add it.
 		elements.push(getFilename(image));
 		
 		$('#favourite').get(0).innerHTML = $.cookie("language") == "en" ? "Remove from selection" : "Fjern fra utvalg";
+		$.cookie("aweSelection", elements.join(":"));
 	}
 	
-	if (images.bilde.length == 0) {
-		// If we have no images in the selection, we have to tell the user about it.
-		$('#layout').hide();
-		$('#info').show();
-	}
-	$.cookie("aweSelection", elements.join(":"));
+	
+	
 }
 
 function _getSelectionElements() {
@@ -159,8 +185,23 @@ function isImageInSelection(elements) {
 	return false;
 }
 
+function loadSelection() {
+	var code = $.base64Decode(args[2]);
+	$.cookie("aweSelection", code); // ...
+}
 
-// TODO: Add possibility to remove images from selection. 
+function generateShareURL() {
+	var sel = $.cookie("aweSelection") || '';
+	if (sel == '') {
+		return '';
+	}
+	return $.base64Encode(sel);	
+}
+
+function setShareURLs() {
+	var url = window.location.protocol + "//" + window.location.host + "/" + (window.location.path || '') + "#utvalg/" + getFilename(image) + "/" + generateShareURL();
+	$('#share a').attr('href', url).attr('innerHTML', url);
+}
 
 // Keyboard nagivation using the left and right keys.
 $('html').keydown(function(e) {
@@ -205,6 +246,10 @@ $(document).ready(function() {
 	$.get("bilder.xml", function(xml) {
 		images = $.xml2json(xml);
 		if (args[0] == 'utvalg') {
+			if (args[2] != undefined) {
+				loadSelection();
+			}
+		
 			var elements = _getSelectionElements();
 			var i = 0;
 			while (i < images.bilde.length) {

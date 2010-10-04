@@ -21,6 +21,8 @@ h2, th {
 
 h3 {
 	font-size: 1.2em;
+	text-transform: uppercase;
+	margin: 0;
 }
 
 p, td {
@@ -227,4 +229,8 @@ hr {
 
 #info {
 	display: none;
+}
+
+#share {
+	margin-bottom: 1em;
 }
