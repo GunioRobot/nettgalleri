@@ -76,7 +76,7 @@ function display() {
 	$('#favourite').get(0).innerHTML = selText;
 	
 	// Fix the URL to provide a nice 
-	location.href = location.href.split("#").shift() + "#bilder/" + image;
+	location.href = location.href.split("#").shift() + "#galleri/" + image;
 	
 	// Call for the waiter function to load the image fully before displaying it.
 	_display(img);

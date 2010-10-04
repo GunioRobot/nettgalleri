@@ -49,11 +49,17 @@ function loadContent(page) {
 	$('#content').hide()
 				 .load('innhold/' + page + '.php')
 				 .fadeIn();
-				 
+				 			 
 	// Recurse and fallback to home if the page is not found.
 	if (status == 'error') {
-		loadContent('hjem');
+		return loadContent('hjem');
 	}
+	
+	// Make the menu items highlight the section we're currently in
+	$('#menu li a').each(function () { 
+		this.className = '';
+	});
+	$('#' + page).get(0).className = 'selected';
 }
 
 /*
@@ -100,18 +106,16 @@ $(document).ready(function() {
 	});
 	
 	// Make the menu actually do something, except the langauge
-	$('#menu li a:not(#language)').click(function(e) {
+	$('#menu li a').click(function(e) {	
 		e.preventDefault();
-		// We don't want to jump to any anchors in the page, thus...
-		location.href = location.href.split("#").shift() + "#" + this.id;
-		// Load based on content
-		loadContent(this.id);
-	});
-	
-	// This will do something fancy when the language changer is implemented.
-	$('#language').click(function(e) {
-		e.preventDefault();
-		changeLanguage();
+		if (this.id == 'language') {
+			changeLanguage();
+		} else {
+			// We don't want to jump to any anchors in the page, thus...
+			location.href = location.href.split("#").shift() + "#" + this.id;
+			// Load based on content
+			loadContent(this.id);
+		}
 	});
 	
 	// Finally load content based on the specified arguments passed in the URL.
