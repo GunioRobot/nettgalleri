@@ -217,24 +217,24 @@ $(document).ready(function() {
 				
 				if (!found) {
 					images.bilde.splice(i, 1);
-					i = 0;
+//					i = 0;
 				} else {
 					i++;
 				}
 			}
-			if (images.bilde.length == 0) {
-				// If we have no images in the selection, we have to tell the user about it.
-				$('#layout').hide();
-				$('#info').show();
-			}
 		}
 		
-		if (args[1] != undefined && args[1] != '' && images.bilde[getImagePositionByFilename(args[1])] != undefined) {
-			image = parseInt(getImagePositionByFilename(parseInt(args[1])));
+		if (images.bilde.length == 0) {
+			// If we have no images in the selection, we have to tell the user about it.
+			$('#layout').hide();
+			$('#info').show();
 		} else {
-			image = 0;
+			if (args[1] != undefined && args[1] != '' && images.bilde[getImagePositionByFilename(args[1])] != undefined) {
+				image = parseInt(getImagePositionByFilename(parseInt(args[1])));
+			} else {
+				image = 0;
+			}
+			display();
 		}
-
-		display();
 	});
 });
