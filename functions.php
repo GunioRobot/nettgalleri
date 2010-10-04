@@ -9,13 +9,20 @@ if(isset($_COOKIE['language'])) {
 	$lang = $_COOKIE['language'];
 }
 
+function get_file_content($filename) {
+	$handler = fopen($filename, "r");
+	$contents = fread($handler, filesize($filename));
+	fclose($handler);
+
+	return $contents;	
+}
+
+
 function translate($filename) {
 	global $lang, $dictionary;
 
 	// Get all keywords
-	$handler = fopen($filename, "r");
-	$contents = fread($handler, filesize($filename));
-	fclose($handler);
+	$contents = get_file_content($filename);
 
 	// Get all text that should be translated
 	preg_match_all('/\${([^}]+)}/', $contents, $matches);
@@ -28,16 +35,32 @@ function translate($filename) {
 	return $contents;
 }
 
-function loadContent($file) {
+function load_content($file) {
 
 	if($file == "bilder.php") {
+
 	
 	} else if($file == "language.php") {
+		if(!isset($_COOKIE['language']) {
+			setcookie("language", "en");	
+		} else if($_COOKIE['language'] == "no") {
+			$_COOKIE['language'] = "en";
+		} else {
+			$_COOKIE['language'] = "no";
+		}
+
+		$returl = $SERVER['PHP_SELF'];
+		header("Location: $returl");
 
 	} else {
-		include("innhold/$file");
-	}
+		$file = "/innhold/$file.html";
 
+		if(file_exists($file)) {
+			$contents = get_file_content($filename);
+			return $contents;
+		}
+	}
+	return;
 }
 
 ?>

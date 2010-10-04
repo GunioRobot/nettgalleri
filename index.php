@@ -1,9 +1,10 @@
 <?php
 	
 	include "functions.php";
-
-	//$dictionary['content'] = loadContent();
-
-	print translate("innhold/index.html");
+	
+	$request = $_SERVER['PHP_SELF'];
+	$dictionary['content'] = loadContent($request);
+	$file = "innhold/index.html";
+	print translate(translate($file));
 
 ?>
