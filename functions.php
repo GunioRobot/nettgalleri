@@ -41,7 +41,7 @@ function load_content($file) {
 
 	
 	} else if($file == "language.php") {
-		if(!isset($_COOKIE['language']) {
+		if(!isset($_COOKIE['language'])) {
 			setcookie("language", "en");	
 		} else if($_COOKIE['language'] == "no") {
 			$_COOKIE['language'] = "en";
