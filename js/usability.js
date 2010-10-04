@@ -56,10 +56,8 @@ function loadContent(page) {
 	}
 	
 	// Make the menu items highlight the section we're currently in
-	$('#menu li a').each(function () { 
-		this.className = '';
-	});
-	$('#' + page).get(0).className = 'selected';
+	$('.selected').attr('className', '');
+	$('#' + page).attr('className', 'selected');
 }
 
 /*
@@ -92,6 +90,15 @@ $(document).ready(function() {
 	
 	// Insert this first thing in the wrap div.
 	$('#wrap').get(0).insertBefore(ul, $('#wrap').get(0).firstChild);
+	
+	// The same goes for the selection
+	var li = document.createElement('li');
+	var a = document.createElement('a');
+	li.appendChild(a);
+	a.id = "utvalg";
+	a.innerHTML = $.cookie("language") == "en" ? "Your selection" : "Ditt utvalg";
+	$('#menu').add(li);
+	$('#menu').get(0).insertBefore(li, $('#menu li').get($('#menu').find('li').length-1)); // Hackish...
 		
 	// Add on click handler for the font size changer.
 	$('#font-sizer li a').click(function(e) {

@@ -44,9 +44,10 @@ img {
 }
 
 #menu {
+	padding: 0;
 	padding-bottom: 1.5em;
 	margin: 0 auto;
-	width: 33.5em;
+	width: 41em;
 	margin-bottom: 1em;
 }
 

@@ -5,6 +5,7 @@
 // Global variables 
 var image = 0; // The current image shown
 var images = {}; // A new JSON object, to contain information about all available images.
+var args = getUrlVars();
 
 /*
  * Helper function to simplify the API.
@@ -12,7 +13,7 @@ var images = {}; // A new JSON object, to contain information about all availabl
  */
 function next() {
 	image++;
-	if (image == images.bilde.length) {
+	if (image >= images.bilde.length) {
 		image = 0;
 	}
 	display();
@@ -65,7 +66,7 @@ function display() {
 
 	// Updates the page elements with the image data.
 	$('#imgtitle').get(0).innerHTML = images.bilde[image].tittel;
-	$('#imgnum').get(0).innerHTML = (image + 1) + " / " + images.bilde.length;
+	$('#imgnum').get(0).innerHTML = parseInt(image) + 1 + " / " + images.bilde.length;
 	$('#description').get(0).innerHTML = images.bilde[image].beskrivelse;
 	
 	// We have to update the selection text if the image is added in our selection.
@@ -76,46 +77,65 @@ function display() {
 	$('#favourite').get(0).innerHTML = selText;
 	
 	// Fix the URL to provide a nice 
-	location.href = location.href.split("#").shift() + "#galleri/" + image;
+	location.href = location.href.split("#").shift() + "#" + args[0] + "/" + getFilename(image);
 	
 	// Call for the waiter function to load the image fully before displaying it.
 	_display(img);
+}
+
+function getFilename(img) {
+	var filename = images.bilde[img].filnavn;
+	return filename.substr(0, filename.length-4);
+}
+
+function getImagePositionByFilename(img) {
+	for (var b in images.bilde) {
+		if (getFilename(b) == img) {
+			return b;
+		}
+	}
 }
 
 /*
  *
  *
  */
-function addToSelection() {
-	var elements = _getSelectionElements();
-
-	elements.push(image),
-
-	$.cookie("aweSelection", elements.join(":"));
-}
-
 function toggleSelection() {
 	var elements = _getSelectionElements();
-	var newText = '';
+
 	if (isImageInSelection(elements)) {
+		// We have already added the image to the selection, remove it then.
+		
 		// index HAS to be > -1, or something's screwed with isImageInSelection
-		var index = elements.indexOf(image);
+		var index = elements.indexOf(getFilename(image));
 	
 		// Remove the element
-		elements.splice(index, 1); 
+		elements.splice(index, 1);
 		
-		newText = $.cookie("language") == "en" ? "Add to selection" : "Legg til utvalg";
+		if (args[0] == 'utvalg') {
+			// If we're in the selection, we have to remove it from the images array and go to the next image
+			images.bilde.splice(image, 1);
+		
+			if (images.bilde.length > 0 && image == images.bilde.length) {
+				previous();
+			} else if (images.bilde.length > 0) {
+				display();
+			}
+		} else {
+			$('#favourite').get(0).innerHTML = $.cookie("language") == "en" ? "Add to selection" : "Legg til utvalg";
+		}
 	} else {
-		elements.push(image);
+		// We have not added the image to the selection, add it.
+		elements.push(getFilename(image));
 		
-		newText = $.cookie("language") == "en" ? "Remove from selection" : "Fjern fra utvalg";
+		$('#favourite').get(0).innerHTML = $.cookie("language") == "en" ? "Remove from selection" : "Fjern fra utvalg";
 	}
-	$('#favourite').get(0).innerHTML = newText;
+	
+	if (images.bilde.length == 0) {
+		// If we have no images in the selection, we have to tell the user about it.
+		$('#layout').get(0).innerHTML = "<h2>" + ($.cookie("language") == "en" ? "There are no images in your selection" : "Du har ingen bilder i ditt utvalg") + "</h2>";
+	}
 	$.cookie("aweSelection", elements.join(":"));
-}
-
-function removeFromSelection() {
-	var elements = _getSelectionElements();
 }
 
 function _getSelectionElements() {
@@ -131,7 +151,7 @@ function isImageInSelection(elements) {
 	elements = elements != undefined ? elements : _getSelectionElements();
 	
 	for (var i = 0; i < elements.length; i++) {
-		if (elements[i] != '' && elements[i] == image) {
+		if (elements[i] != '' && elements[i] == getFilename(image)) {
 			return true;
 		}
 	}
@@ -180,14 +200,42 @@ $(document).ready(function() {
 		toggleSelection();
 	});
 
-	var args = getUrlVars();
-	if (args[1] != undefined) {
-		image = parseInt(args[1]);
-	}
-
 	// Let's load the image information in the page. 
 	$.get("bilder.xml", function(xml) {
 		images = $.xml2json(xml);
+		if (args[0] == 'utvalg') {
+			var elements = _getSelectionElements();
+			var i = 0;
+			while (i < images.bilde.length) {
+				var found = false;
+				for (var e in elements) {
+					if (getFilename(i) == elements[e]) {
+						found = true;
+					}
+				}
+				
+				if (!found) {
+					images.bilde.splice(i, 1);
+					i = 0;
+				} else {
+					i++;
+				}
+			}
+			if (images.bilde.length == 0) {
+				// If we have no images in the selection, we have to tell the user about it.
+				$('#layout').get(0).innerHTML = "<h2>" + ($.cookie("language") == "en" ? 
+														"There are no images in your selection" : 
+														"Du har ingen bilder i ditt utvalg")
+											  + "</h2>";
+			}
+		}
+		
+		if (args[1] != undefined && args[1] != '' && images.bilde[getImagePositionByFilename(args[1])] != undefined) {
+			image = parseInt(getImagePositionByFilename(parseInt(args[1])));
+		} else {
+			image = 0;
+		}
+
 		display();
 	});
 });

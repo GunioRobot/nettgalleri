@@ -1,5 +1,5 @@
 <?php
 	include "../functions.php";
 	
-	print translate("galleri.html");
+	print translate("utvalg.html");
 ?>
