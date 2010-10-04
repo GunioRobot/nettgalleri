@@ -1,8 +1,13 @@
 <?php
 	
 	include "functions.php";
-	
-	$request = substr($_SERVER['REQUEST_URI'], 1);
+
+	if(isset($_GET['page'])) {
+		$request = $_GET['page'];
+	} else {
+		$request = "hjem";
+	}	
+
 	$dictionary['content'] =  array($lang => load_content($request));
 	$file = "innhold/index.html";
 	print translate($file);

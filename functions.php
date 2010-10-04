@@ -21,7 +21,7 @@ function get_file_content($filename) {
 function translate($filename) {
 	global $lang, $dictionary;
 
-	// Get all keywords
+	// Get all data
 	$contents = file_exists($filename) ? file_get_contents($filename) : $filename;
 
 	// Get all text that should be translated
@@ -36,8 +36,8 @@ function translate($filename) {
 }
 
 function load_content($file) {
-	if($file == "bilder") {
-
+	if($file == "galleri") {
+	
 	
 	} else if($file == "language") {
 		if(!isset($_COOKIE['language'])) {
