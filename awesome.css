@@ -57,7 +57,7 @@ img {
 }
 
 #menu li:not(:last-child) a {
-	border-right: 1px #444 solid;
+	border-right: 1px #404044 solid;
 }
 
 #menu li a {
@@ -80,7 +80,11 @@ img {
 #menu li a:hover {
 	background: #404044;
 	color: #fff;
-	cursor: hand !important;
+}
+
+#menu li a.selected {
+	background: #404044;
+	color: #fff;
 }
 
 #menu li  {
