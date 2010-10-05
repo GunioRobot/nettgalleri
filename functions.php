@@ -9,15 +9,6 @@ if(isset($_COOKIE['language'])) {
 	$lang = $_COOKIE['language'];
 }
 
-function get_file_content($filename) {
-	$handler = fopen($filename, "r");
-	$contents = fread($handler, filesize($filename));
-	fclose($handler);
-
-	return $contents;	
-}
-
-
 function translate($filename) {
 	global $lang, $dictionary;
 
@@ -37,8 +28,7 @@ function translate($filename) {
 
 function load_content($file) {
 	if($file == "galleri") {
-	
-	
+		return get_gallery();
 	} else if($file == "language") {
 		if(!isset($_COOKIE['language'])) {
 			setcookie("language", "en");	
@@ -59,6 +49,15 @@ function load_content($file) {
 		}
 	}
 	return;
+}
+
+
+// This function parses the gallery xml and returns a gallery
+// At the moment no navigation supported, but this is only a
+// sollution for PHP fallback when JavaScript is not enabled
+function get_gallery() {
+	$file = "bilder.xml";
+	
 }
 
 ?>
