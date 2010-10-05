@@ -27,8 +27,12 @@ function translate($filename) {
 }
 
 function load_content($file) {
+	// Parse the XML file
 	if($file == "galleri") {
 		return get_gallery();
+
+	// Language switch
+	// Set cookie and redirect
 	} else if($file == "language") {
 		if(!isset($_COOKIE['language'])) {
 			setcookie("language", "en");	
@@ -41,6 +45,7 @@ function load_content($file) {
 		$returl = $_SERVER['HTTP_REFERER'];
 		header("Location: $returl");
 
+	// Return the data of the html file requested
 	} else {
 		$file = "innhold/$file.html";
 		if(file_exists($file)) {
@@ -52,12 +57,74 @@ function load_content($file) {
 }
 
 
-// This function parses the gallery xml and returns a gallery
+// This function parses bilder.xml and returns a gallery
 // At the moment no navigation supported, but this is only a
 // sollution for PHP fallback when JavaScript is not enabled
+
+$bilder = array();
+
 function get_gallery() {
 	$file = "bilder.xml";
+	global $xml_tittel_key, $xml_fil_key, $xml_beskrivelse_key;
+	$xml_tittel_key = "*GALLERI*BILDE*TITTEL";
+	$xml_fil_key = "*GALLERI*BILDE*FILNAVN";
+	$xml_beskrivelse_key = "*GALLERI*BILDE*BESKRIVELSE";
+
+	global $bilder;
+	$counter = 0;
+
+	class bilde {
+		var $tittel, $filnavn, $beskrivelse;
+	}		
+
+	function startTag($parser, $data) {
+		global $current_tag;
+		$current_tag .= "*$data";
+	}
+
+	function endTag($parser, $data) {
+		global $current_tag;
+		$tag_key = strrpos($current_tag, "*");
+		$current_tag = substr($current_tag, 0, $tag_key);
+	}
+
+	function contents($parser, $data) {
+		global $current_tag, $xml_tittel_key, $xml_fil_key, $xml_beskrivelse_key, $counter, $bilder;
+		
+		switch($current_tag) {
+			case $xml_tittel_key:
+				$bilder[$counter] = new bilde();
+				$bilder[$counter]->tittel = $data;
+				break;
+			case $xml_fil_key:
+				$bilder[$counter]->filnavn = $data;
+				break;
+			case $xml_beskrivelse_key:
+				$bilder[$counter++]->beskrivelse = $data;
+				break;
+		}
+	}
+
+	$parser = xml_parser_create();
+	xml_set_element_handler($parser, "startTag", "endTag");
+	xml_set_character_data_handler($parser, "contents");
+
+	$fp = fopen($file, "r") or die("failed to open file");
+	$data = fread($fp, filesize($file)) or die("failed to read file");
+
+	if(!(xml_parse($parser, $data, feof($fp)))){ 
+    	die("Error on line " . xml_get_current_line_number($parser)); 
+	}
+
+	xml_parse($parser, $data);
+
+	xml_parser_free($parser);
+	fclose($fp);
 	
+	print_r($bilder);
+
 }
+
+get_gallery();
 
 ?>
