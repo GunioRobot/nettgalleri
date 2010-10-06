@@ -64,7 +64,7 @@ function load_content($file) {
 $bilder = array();
 
 function get_gallery() {
-	$file = "bilder2.xml";
+	$file = "bilder.xml";
 	global $xml_tittel_key, $xml_fil_key, $xml_beskrivelse_key;
 	$xml_tittel_key = "*GALLERI*BILDE*TITTEL";
 	$xml_fil_key = "*GALLERI*BILDE*FILNAVN";
