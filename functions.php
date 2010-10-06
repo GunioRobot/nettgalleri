@@ -64,7 +64,7 @@ function load_content($file) {
 $bilder = array();
 
 function get_gallery() {
-	$file = "bilder.xml";
+	$file = "bilder2.xml";
 	global $xml_tittel_key, $xml_fil_key, $xml_beskrivelse_key;
 	$xml_tittel_key = "*GALLERI*BILDE*TITTEL";
 	$xml_fil_key = "*GALLERI*BILDE*FILNAVN";
@@ -120,11 +120,15 @@ function get_gallery() {
 
 	xml_parser_free($parser);
 	fclose($fp);
-	
-	print_r($bilder);
 
+	$html = "";
+	foreach($bilder as $bilde) {
+		$html .= "<h3>$bilde->tittel</h3>\n";
+		$html .= "<p><img src=\"bilder/$bilde->filnavn\" alt=\"$bilde->tittel\" /></p>\n";
+		$html .= "<p>$bilde->beskrivelse</p>\n\n\n";
+	}
+
+	return $html;
 }
-
-get_gallery();
 
 ?>
