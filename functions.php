@@ -90,7 +90,7 @@ function get_gallery() {
 
 	function contents($parser, $data) {
 		global $current_tag, $xml_tittel_key, $xml_fil_key, $xml_beskrivelse_key, $counter, $bilder;
-		//$data = pro_charset_hax($data, false);
+		$data = pro_charset_hax($data, false);
 		switch($current_tag) {
 			case $xml_tittel_key:
 				$bilder[$counter] = new bilde();
@@ -105,7 +105,7 @@ function get_gallery() {
 		}
 	}
 
-	/*
+	
 	function pro_charset_hax ($data, $encode = true) {
 		$STUPID = Array(
 			"æ" => "__aelig__",
@@ -122,9 +122,7 @@ function get_gallery() {
 
 		return $data;
 	}
-	*/
-
-
+	
 	$parser = xml_parser_create();
 	xml_set_element_handler($parser, "startTag", "endTag");
 	xml_set_character_data_handler($parser, "contents");
@@ -132,7 +130,7 @@ function get_gallery() {
 
 	$fp = fopen($file, "r") or die("failed to open file");
 	$data = fread($fp, filesize($file)) or die("failed to read file");
-	//$data = pro_charset_hax($data);
+	$data = pro_charset_hax($data);
 	if(!(xml_parse($parser, $data, feof($fp)))){ 
     	die("Error on line " . xml_get_current_line_number($parser) ."\n"); 
 	}
