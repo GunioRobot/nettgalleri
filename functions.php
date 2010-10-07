@@ -64,7 +64,7 @@ function load_content($file) {
 $bilder = array();
 
 function get_gallery() {
-	$file = "bilder2.xml";
+	$file = "bilder.xml";
 	global $xml_tittel_key, $xml_fil_key, $xml_beskrivelse_key;
 	$xml_tittel_key = "*GALLERI*BILDE*TITTEL";
 	$xml_fil_key = "*GALLERI*BILDE*FILNAVN";
@@ -90,7 +90,7 @@ function get_gallery() {
 
 	function contents($parser, $data) {
 		global $current_tag, $xml_tittel_key, $xml_fil_key, $xml_beskrivelse_key, $counter, $bilder;
-		
+		//$data = pro_charset_hax($data, false);
 		switch($current_tag) {
 			case $xml_tittel_key:
 				$bilder[$counter] = new bilde();
@@ -105,22 +105,43 @@ function get_gallery() {
 		}
 	}
 
+	/*
+	function pro_charset_hax ($data, $encode = true) {
+		$STUPID = Array(
+			"æ" => "__aelig__",
+			"ø" => "__oslash__",
+			"å" => "__aring__",
+			"Æ" => "__Aelig__",
+			"Ø" => "__Oslash__",
+			"Å" => "__Aring__"
+		);
+		
+		foreach ($STUPID as $from => $to) {
+			$data = $encode ? str_replace($from, $to, $data) : str_replace($to, $from, $data);
+		}
+
+		return $data;
+	}
+	*/
+
+
 	$parser = xml_parser_create();
 	xml_set_element_handler($parser, "startTag", "endTag");
 	xml_set_character_data_handler($parser, "contents");
+	xml_parser_set_option($parser, XML_OPTION_TARGET_ENCODING, 'UTF-8');	
 
 	$fp = fopen($file, "r") or die("failed to open file");
 	$data = fread($fp, filesize($file)) or die("failed to read file");
-
+	//$data = pro_charset_hax($data);
 	if(!(xml_parse($parser, $data, feof($fp)))){ 
-    	die("Error on line " . xml_get_current_line_number($parser)); 
+    	die("Error on line " . xml_get_current_line_number($parser) ."\n"); 
 	}
-
 	xml_parse($parser, $data);
 
 	xml_parser_free($parser);
 	fclose($fp);
 
+	/*
 	$html = "";
 	foreach($bilder as $bilde) {
 		$html .= "<h3>$bilde->tittel</h3>\n";
@@ -129,6 +150,11 @@ function get_gallery() {
 	}
 
 	return $html;
+	*/
+
+	print_r($bilder);
 }
+
+get_gallery();
 
 ?>
