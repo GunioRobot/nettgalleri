@@ -27,9 +27,40 @@ function translate($filename) {
 }
 
 function load_content($file) {
-	// Parse the XML file
+	// Get the array holding picture objects
 	if($file == "galleri") {
-		return get_gallery();
+		$pics = array();
+		$pics = get_gallery();
+
+		// Set upper and lower id
+		$first_id = 0;
+		$last_id = count($pics);
+
+		// Get requested id
+		$requested_id = isset($_GET['id']) ? ($_GET['id']-1) : $first_id;
+	
+		// Make navigation links
+		$next_id = ($requested_id == $last_id) ? $first_id : ($requested_id+1);
+		$prew_id = ($requested_id == $first_id) ? $last_id : ($requested_id-1);
+	
+		$tittel = $pics[$requested_id]->tittel;
+		$fil = $pics[$requested_id]->filnavn;
+		$beskrivelse = $pics[$requested_id]->beskrivelse;
+
+		$html = "<h4>$tittel</h4>\n";
+		$html .= "<p><img src=\"bilder/$fil\" alt=\"$tittel\" /></p>\n";
+		$html .= "<p>$beskrivelse</p>\n\n";
+
+		$html .= "<div class=\"navigate\">\n";
+		$html .= "<p>" .($requested_id+1) ."/" .(count($pics)+1) ."</p>";
+		$html .= "<p>\n";
+		$html .= "<a href=\"galleri?id=$prew_id\">previous picture</a>\n";
+		$html .= "<a href=\"galleri?id=$next_id\">next picture</a>\n";
+		$html .= "</p>\n";
+		$html .= "</div>\n";
+		
+		return $html;				
+
 
 	// Language switch
 	// Set cookie and redirect
@@ -71,6 +102,7 @@ function get_gallery() {
 	$xml_beskrivelse_key = "*GALLERI*BILDE*BESKRIVELSE";
 
 	global $bilder;
+	global $counter;
 	$counter = 0;
 
 	class bilde {
@@ -150,9 +182,7 @@ function get_gallery() {
 	return $html;
 	*/
 
-	print_r($bilder);
+	return $bilder;
 }
-
-get_gallery();
 
 ?>

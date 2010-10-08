@@ -2,13 +2,10 @@
 	
 	include "functions.php";
 
-	if(isset($_GET['page'])) {
-		$request = $_GET['page'];
-	} else {
-		$request = "hjem";
-	}	
+	$request = isset($_GET['page']) ? $_GET['page'] : "hjem";
 
 	$dictionary['content'] =  array($lang => load_content($request));
 	$file = "innhold/index.html";
 	print translate($file);
+
 ?>
