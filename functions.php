@@ -26,6 +26,11 @@ function translate($filename) {
 	return $contents;
 }
 
+function get_id() {
+	preg_match("/id=(\d+)/", $_SERVER['REQUEST_URI'], $matches);
+        return $matches[1] ? $matches[1] : 1; # Default to 1;
+}
+
 function load_content($file) {
 	// Get the array holding picture objects
 	if($file == "galleri") {
@@ -33,33 +38,36 @@ function load_content($file) {
 		$pics = get_gallery();
 
 		// Set upper and lower id
-		$first_id = 0;
-		$last_id = count($pics)-1;
+		$first_id = 1;
+		$last_id = count($pics);
 
 		// Get requested id
-		$requested_id = isset($_GET['id']) ? ($_GET['id']-1) : $first_id;
+		//$requested_id = ($_GET['id'] != "") ? ($_GET['id']) : $first_id;
+		$requested_id = get_id();
+
+		$index = $requested_id-1;
 	
 		// Make navigation links
 		$next_id = ($requested_id == $last_id) ? $first_id : ($requested_id+1);
 		$prew_id = ($requested_id == $first_id) ? $last_id : ($requested_id-1);
 	
-		$tittel = $pics[$requested_id]->tittel;
-		$fil = $pics[$requested_id]->filnavn;
-		$beskrivelse = $pics[$requested_id]->beskrivelse;
+		$tittel = $pics[$index]->tittel;
+		$fil = $pics[$index]->filnavn;
+		$beskrivelse = $pics[$index]->beskrivelse;
 
 		$html = "<h4>$tittel</h4>\n";
 		$html .= "<p><img src=\"bilder/$fil\" alt=\"$tittel\" /></p>\n";
 		$html .= "<p>$beskrivelse</p>\n\n";
 
 		$html .= "<div class=\"navigate\">\n";
-		$html .= "<p>" .($requested_id+1) ."/" .(count($pics)+1) ."</p>";
+		$html .= "<p>$requested_id/" .count($pics) ."</p>";
 		$html .= "<p>\n";
-		$html .= "<a href=\"galleri?id=$prew_id\">previous picture</a>\n";
-		$html .= "<a href=\"galleri?id=$next_id\">next picture</a>\n";
+		$html .= "<a href=\"?id=$prew_id\">previous picture</a>\n";
+		$html .= "<a href=\"?id=$next_id\">next picture</a>\n";
 		$html .= "</p>\n";
 		$html .= "</div>\n";
 		
-		return $html;				
+		return $html;	
 
 
 	// Language switch
