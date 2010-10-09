@@ -54,11 +54,13 @@ function load_content($file) {
 		$tittel = $pics[$index]->tittel;
 		$fil = $pics[$index]->filnavn;
 		$beskrivelse = $pics[$index]->beskrivelse;
-
-		$html = "<h4>$tittel</h4>\n";
-		$html .= "<p><img src=\"bilder/$fil\" alt=\"$tittel\" /></p>\n";
-		$html .= "<p>$beskrivelse</p>\n\n";
-
+	
+		$html = "<div class=\"picture\">\n";
+		$html .= "<h4>$tittel</h4>\n";
+		$html .= "<p><img src=\"bilder/$fil\" height=\"50\" width=\"30\" alt=\"$tittel\" /></p>\n";
+		$html .= "<p>$beskrivelse</p>\n";
+		$html .= "</div>\n";
+		
 		$html .= "<div class=\"navigate\">\n";
 		$html .= "<p>$requested_id/" .count($pics) ."</p>";
 		$html .= "<p>\n";

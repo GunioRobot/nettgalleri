@@ -268,3 +268,13 @@ hr {
 .cv tr:nth-child(2n) {
 	background-color: #303033;
 }
+
+/* PHP gallery */
+div.picture {
+	display: inline;
+	width: 50%;
+}
+
+div.navigate {
+	float: right;
+}
