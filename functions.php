@@ -34,7 +34,7 @@ function load_content($file) {
 
 		// Set upper and lower id
 		$first_id = 0;
-		$last_id = count($pics);
+		$last_id = count($pics)-1;
 
 		// Get requested id
 		$requested_id = isset($_GET['id']) ? ($_GET['id']-1) : $first_id;

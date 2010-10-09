@@ -1,3 +1,5 @@
 RewriteEngine on
-RewriteBase /
-RewriteRule ^([^/\.]+)$ index.php?page=$1 [L]
+#RewriteBase /
+#RewriteRule ^([^/\.]+)$ index.php?page=$1 [L]
+RewriteBase /nettgalleri/
+RewriteRule ^(.*)$ index.php?page=$1?id=3 [L]
