@@ -1,3 +1,5 @@
 <?php
-	include "hjem.html";
+	include "../functions.php";
+
+	print translate("hjem.html");
 ?>

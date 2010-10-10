@@ -73,4 +73,12 @@ $dictionary["questions2"] = array("no" => ".Se også seksjonen CV for en full ov
 $dictionary["email"] = array("no" => "e-post", "en" => "e-mail");
 $dictionary["sincerely"] = array("no" => "Med vennlig hilsen,", "en" => "Sincerely,");
 
+// Home
+$dictionary["welcomeHome"] = array("no" => "Velkommen til Galleri Awesome!", "en" => "Welcome to Gallery Awesome!");
+$dictionary["aboutGallery"] = array("no" => "Her kan en bla seg gjennom diverse bilder som er blitt utstilt i siste årene. Gallerisiden er utformet slik at alle skal kunne få glede av den. Siden følger retningslinjene satt i WCAG (Web Content Accessibility Guidlines) 1.0.
+Siden tillater deg som bruker å endre fontstørrelse. Videre fungerer galleriet slik at man både kan bruke tastaturet og musen til navigasjon. Vi håper at sidens utforming gir deg som bruker en best mulig opplevelse av galleriet.", "en" => "Here you can browse through pictures that have been presented over the past years. The gallery page is developed with accessibility in focus. It follows the guidelines given in WCAG (Web Content Accessibility Guidelines) 1.0.
+The page allows you as user to change font size of the text presented. Furthermore, the gallery section lets you navigate using both keyboard and the mouse. We hope that this site gives you the best possible experience when browsing the gallery.");
+$dictionary["plannedExhibits"] = array("no" => "Det er ikke planlagt noen utstilling i den nærmeste fremtid. Følg med på siden for oppdateringer eller meld deg på nyhetsbrevet lenger ned på siden.", "en" => "No exhibits are planned in the near future. Please keep updated on this gallery site, or subscribe on the newsletter at the bottom of this page.");
+
+
 ?>
