@@ -32,6 +32,7 @@ function get_id() {
 }
 
 function load_content($file) {
+	global $lang;
 	// Get the array holding picture objects
 	if($file == "galleri") {
 		$pics = array();
@@ -49,23 +50,27 @@ function load_content($file) {
 	
 		// Make navigation links
 		$next_id = ($requested_id == $last_id) ? $first_id : ($requested_id+1);
-		$prew_id = ($requested_id == $first_id) ? $last_id : ($requested_id-1);
+		$prev_id = ($requested_id == $first_id) ? $last_id : ($requested_id-1);
+		$next_text = ($lang == "no") ? "Neste bilde" : "Next picture";
+		$prev_text = ($lang == "no") ? "Forrige bilde" : "Previous picture";
+
 	
-		$tittel = $pics[$index]->tittel;
+		$tittel = ($lang == "no") ? $pics[$index]->tittel_no : $pics[$index]->tittel_en;
 		$fil = $pics[$index]->filnavn;
-		$beskrivelse = $pics[$index]->beskrivelse;
+		$beskrivelse = ($lang == "no") ? $pics[$index]->beskrivelse_no : $pics[$index]->beskrivelse_en;
 	
 		$html = "<div class=\"picture\">\n";
 		$html .= "<h4>$tittel</h4>\n";
-		$html .= "<p><img src=\"bilder/$fil\" height=\"50\" width=\"30\" alt=\"$tittel\" /></p>\n";
+		$html .= "<p><img src=\"bilder/$fil\" height=\"400\" width=\"300\" alt=\"$tittel\" /></p>\n";
 		$html .= "<p>$beskrivelse</p>\n";
+		
 		$html .= "</div>\n";
 		
 		$html .= "<div class=\"navigate\">\n";
 		$html .= "<p>$requested_id/" .count($pics) ."</p>";
 		$html .= "<p>\n";
-		$html .= "<a href=\"?id=$prew_id\">previous picture</a>\n";
-		$html .= "<a href=\"?id=$next_id\">next picture</a>\n";
+		$html .= "<a href=\"?id=$prev_id\">$prev_text</a>\n";
+		$html .= "<a href=\"?id=$next_id\">$next_text</a>\n";
 		$html .= "</p>\n";
 		$html .= "</div>\n";
 		
@@ -105,18 +110,20 @@ function load_content($file) {
 $bilder = array();
 
 function get_gallery() {
-	$file = "bilder.xml";
-	global $xml_tittel_key, $xml_fil_key, $xml_beskrivelse_key;
-	$xml_tittel_key = "*GALLERI*BILDE*TITTEL";
+	$file = "bilder2.xml";
+	global $xml_tittel_no, $xml_tittel_en, $xml_fil_key, $xml_beskrivelse_no, $xml_beskrivelse_en;
+	$xml_tittel_no = "*GALLERI*BILDE*TITTEL*NO";
+	$xml_tittel_en = "*GALLERI*BILDE*TITTEL*EN";
 	$xml_fil_key = "*GALLERI*BILDE*FILNAVN";
-	$xml_beskrivelse_key = "*GALLERI*BILDE*BESKRIVELSE";
+	$xml_beskrivelse_no = "*GALLERI*BILDE*BESKRIVELSE*NO";
+	$xml_beskrivelse_en = "*GALLERI*BILDE*BESKRIVELSE*EN";
 
 	global $bilder;
 	global $counter;
 	$counter = 0;
 
 	class bilde {
-		var $tittel, $filnavn, $beskrivelse;
+		var $tittel_no, $tittel_en, $filnavn, $beskrivelse_no, $beskrivelse_en;
 	}		
 
 	function startTag($parser, $data) {
@@ -131,18 +138,24 @@ function get_gallery() {
 	}
 
 	function contents($parser, $data) {
-		global $current_tag, $xml_tittel_key, $xml_fil_key, $xml_beskrivelse_key, $counter, $bilder;
+		global $current_tag, $xml_tittel_no, $xml_tittel_en, $xml_fil_key, $xml_beskrivelse_no, $xml_beskrivelse_en, $counter, $bilder;
 		$data = pro_charset_hax($data, false);
 		switch($current_tag) {
-			case $xml_tittel_key:
+			case $xml_tittel_no:
 				$bilder[$counter] = new bilde();
-				$bilder[$counter]->tittel = $data;
+				$bilder[$counter]->tittel_no = $data;
+				break;
+			case $xml_tittel_en:
+				$bilder[$counter]->tittel_en = $data;
 				break;
 			case $xml_fil_key:
 				$bilder[$counter]->filnavn = $data;
 				break;
-			case $xml_beskrivelse_key:
-				$bilder[$counter++]->beskrivelse = $data;
+			case $xml_beskrivelse_no:
+				$bilder[$counter]->beskrivelse_no = $data;
+				break;
+			case $xml_beskrivelse_en:
+				$bilder[$counter++]->beskrivelse_en = $data;
 				break;
 		}
 	}
@@ -193,6 +206,8 @@ function get_gallery() {
 	*/
 
 	return $bilder;
+
 }
+
 
 ?>

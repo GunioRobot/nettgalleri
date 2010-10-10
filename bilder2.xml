@@ -1,33 +1,68 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
 <galleri>
 	<bilde>
-		<tittel>Dood kvinne i rood kiste med himmel og blomster</tittel>
+		<tittel>
+			<no>Død kvinne i rød kiste med himmel og blomster</no>
+			<en>Dead woman in chest, with sky and flowers</en>
+		</tittel>
 		<filnavn>2.jpg</filnavn>
-		<beskrivelse>Kvinnen er dood. Kisten er rood. Himmelen er blaa. Blomster er faa. De visner saa trist. Kvinnen skulle bare visst.</beskrivelse>
+		<beskrivelse>
+			<no>Kvinnen er død. Kisten er rød. Himmelen er blå. Blomster er få. De visner så trist. Kvinnen skulle bare visst.</no>
+			<en>The lady is dead. The coffin is red. Sky is blue. Flowers so few. They wither in their gown. The lady should only have known.</en>
+		</beskrivelse>
 	</bilde>
 	<bilde>
-		<tittel>Kvinne med barn i hodet</tittel>
+		<tittel>
+			<no>Kvinne med barn i hodet</no>
+			<en>Woman with a child in her head</en>
+		</tittel>
 		<filnavn>3.jpg</filnavn>
-		<beskrivelse>Kvinnen er blaa. Barnet er opp ned. Kvinnens ansikt er skjules naa. Himmelen er oransje med.</beskrivelse>
+		<beskrivelse>
+			<no>Kvinnen er blå. Barnet er opp ned. Kvinnens ansikt er skjules nå. Himmelen er oransje med.</no>
+			<en>The woman is blue. The child is upside down. The woman's face is hidden now. The sky is orange.</en>
+		</beskrivelse>
 	</bilde>
 	<bilde>
-		<tittel>Kvinne med haarslooyfe og barn med blaatt hjerte</tittel>
+		<tittel>
+			<no>Kvinne med hårsløyfe og barn med blått hjerte</no>
+			<en>Woman with hair tie and child with blue heart</en>
+		</tittel>
 		<filnavn>4.jpg</filnavn>
-		<beskrivelse>Et barn staar foran. Kvinnen staar bak. Barnets haar glooder. Kvinnen holder ikke tak. Barnet har et kjede. Et blaatt hjerte derinne bor. Kvinnen har haarslooyfer. Hun er gjerne en mor.</beskrivelse>
+		<beskrivelse>
+			<no>Et barn står foran. Kvinnen står bak. Barnets hår gløder. Kvinnen holder ikke tak. Barnet har et kjede. Et blått hjerte derinne bor. Kvinnen har hårsløyfer. Hun er gjerne en mor.</no>
+			<en>A child in front. A lady is the brunt. The child hair glows faint. The lady does not hold her in constraint. The child has a necklace, a blue heart is inside. The lady looks caring, a mother in her must reside.</en>
+		</beskrivelse>
 	</bilde>
 	<bilde>
-		<tittel>Kvinne og barn med hjerner som forbindes</tittel>
+		<tittel>
+			<no>Kvinne og barn med hjerner som forbindes</no>
+			<en>Woman and child with hearts connected</en>
+		</tittel>
 		<filnavn>5.jpg</filnavn>
-		<beskrivelse>Kvinnen staar bak og holder et barn. Barnets hjerne og hjerte vises jammen. Kvinnens uttrykk virker litt harm. Hennes og barnets hjerne forbindes sammen.</beskrivelse>
+		<beskrivelse>
+			<no>Kvinnen står bak og holder et barn. Barnets hjerne og hjerte vises jammen. Kvinnens uttrykk virker litt harm. Hennes og barnets hjerne forbindes sammen.</no>
+			<en>The lady is behind and holds her child. The child's brain and heart are shown in affection. The lady's expression is not very mild. Hers and the childs brains are in connection.</en>
+		</beskrivelse>
 	</bilde>
 	<bilde>
-		<tittel>Naken blaa kvinne med skyer</tittel>
+		<tittel>
+			<no>Naken blå kvinne med skyer</no>
+			<en>Nude blue woman and clouds</en>
+		</tittel>
 		<filnavn>6.jpg</filnavn>
-		<beskrivelse>Kvinnen er naken. Kvinnen er blaa. Skyer er bakom. En aas like saa. Kvinnen glooder.</beskrivelse>
+		<beskrivelse>
+			<no>Kvinnen er naken. Kvinnen er blå. Skyer er bakom. En ås like så. Kvinnen gløder.</no>
+			<en>The lady is nude. The lady is blue. Clouds are behind. A hill is too. The lady glows.</en>
+		</beskrivelse>
 	</bilde>
 	<bilde>
-		<tittel>Pike med hjerte og hjerne som forbindes</tittel>
+		<tittel>
+			<no>Pike med hjerte og hjerne som forbindes</no>
+			<en>Girl with heart and brain connected</en>
+		</tittel>
 		<filnavn>7.jpg</filnavn>
-		<beskrivelse>Piken er naken. Hennes hjerne er blottet. Hennes hjerte vises. Koblet sammen med hjernen i kompottet.</beskrivelse>
+		<beskrivelse>
+			<no>Piken er naken. Hennes hjerne er blottet. Hennes hjerte vises. Koblet sammen med hjernen i kompottet.</no>
+			<en>The girl is naked. Her brain is shown. Her heart disclosed. Connected to the brain, it's not alone.</en>
+		</beskrivelse>
 	</bilde>
 </galleri>
