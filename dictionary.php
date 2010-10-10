@@ -4,7 +4,7 @@ $dictionary = array();
 
 // *** Index translation ***
 
-$dictionary["site_title"] = array("no" => "Margrethe Hauglie-Hanssen – Norsk billedkunstner født 1956", "en" => "Margrethe Hauglie-Hanssen – Norwegian painter born in 1956");
+$dictionary["site_title"] = array("no" => "Margrethe Hauglie-Hanssen – Norsk billedkunstner født i 1956", "en" => "Margrethe Hauglie-Hanssen – Norwegian painter born in 1956");
 
 // Menu
 $dictionary["home"] = array("no" => "hjem", "en" => "home");
