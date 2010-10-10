@@ -49,7 +49,7 @@ img {
 	padding: 0;
 	padding-bottom: 1.5em;
 	margin: 0 auto;
-	width: 32em;
+	width: 34em;
 	margin-bottom: 1em;
 }
 
@@ -137,9 +137,6 @@ hr {
 }
 
 #imgwrap {
-	background: url('loading.gif') top center no-repeat;
-	min-height: 100px;
-	width: 900px;
 	text-align: center;
 }
 
@@ -150,6 +147,12 @@ hr {
 
 #imghead {
 	clear: both;
+}
+
+.loading {
+	background: url('loading.gif') top center no-repeat;
+	min-height: 100px;
+	width: 900px;
 }
 
 /* Let's make a fullscreen and normal screen layout */
@@ -220,7 +223,7 @@ hr {
 }
 
 #layout.normal #sidebar #nav #favourite {
-	background: #ccc url('http://www.scriptgenerator.net/img_gen/add_to_favorites.gif') 0% 50% no-repeat;
+	background: #ccc url('favourite.gif') 0% 50% no-repeat;
 }
 
 #layout.normal #sidebar #nav {
@@ -268,5 +271,3 @@ hr {
 .cv tr:nth-child(2n) {
 	background-color: #303033;
 }
-
-/* PHP gallery */

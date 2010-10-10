@@ -46,9 +46,13 @@ function getUrlVars() {
  * homepage if an error occurs (or the page doesn't exist).
  */
 function loadContent(page) {
-	$('#content').hide()
-				 .load('innhold/' + page + '.php')
-				 .fadeIn();
+	// Not very pretty...
+	$('#content').get(0).innerHTML = '';
+	$('#content').attr('class', 'loading')
+				 .load('innhold/' + page + '.php', function() {
+				 	$(this).attr('class', '');
+				 	$(this).fadeIn();
+				 });
 				 			 
 	// Recurse and fallback to home if the page is not found.
 	if (status == 'error') {
@@ -99,7 +103,7 @@ $(document).ready(function() {
 	a.innerHTML = $.cookie("language") == "en" ? "Your selection" : "Ditt utvalg";
 	$('#menu').add(li);
 	$('#menu').get(0).insertBefore(li, $('#menu li').get($('#menu').find('li').length-1)); // Hackish...
-	$('#menu').css('width', '41em').css('padding-left', '1em');
+	$('#menu').css('width', '43em').css('padding-left', '1em');
 		
 	// Add on click handler for the font size changer.
 	$('#font-sizer li a').click(function(e) {
