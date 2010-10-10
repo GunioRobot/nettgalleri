@@ -41,6 +41,33 @@ function getUrlVars() {
 	return args;
 }
 
+
+/*
+ * Gives us control over Jurassic Park by creating a backdoor to prevent IE from unleashing its horrible CSS.
+ */
+function whiterabbit() {
+	$('table').each(function(i) {
+		$(this).find('tr').each(function(j) {
+		
+			if (j % 2 != 0) {
+				$(this).css('background', '#303033');
+			}
+		
+			$(this).find('th').each(function(k) {
+				if (k % 2 != 0) {
+					$(this).css('text-align', 'right');
+				}
+			});
+			
+			$(this).find('td').each(function(k) {
+				if (k % 2 != 0) {
+					$(this).css('text-align', 'right');
+				}
+			});
+		}); 
+	});
+}
+
 /*
  * Loads the specified page into the content div. Falls back on loading the 
  * homepage if an error occurs (or the page doesn't exist).
@@ -52,6 +79,9 @@ function loadContent(page) {
 				 .load('innhold/' + page + '.php', function() {
 				 	$(this).attr('class', '');
 				 	$(this).fadeIn();
+				 	if (page == 'cv') {
+				 		whiterabbit();
+				 	}
 				 });
 				 			 
 	// Recurse and fallback to home if the page is not found.
@@ -62,13 +92,18 @@ function loadContent(page) {
 	// Make the menu items highlight the section we're currently in
 	$('.selected').attr('className', '');
 	$('#' + page).attr('className', 'selected');
+	
+	// If we're in the CV, perform hacks for IE
 }
 
 /*
  * Changes the language based on the set cookie.
  */
 function changeLanguage() {
-	var lang = $.cookie("language") || "no";
+	var lang = $.cookie("language");
+	if (lang == undefined) {
+		lang = 'no';
+	}
 	$.cookie("language", lang == "no" ? "en" : "no");
 
 	// Then reload the page.
@@ -101,6 +136,7 @@ $(document).ready(function() {
 	li.appendChild(a);
 	a.id = "utvalg";
 	a.innerHTML = $.cookie("language") == "en" ? "Your selection" : "Ditt utvalg";
+	a.href = "";
 	$('#menu').add(li);
 	$('#menu').get(0).insertBefore(li, $('#menu li').get($('#menu').find('li').length-1)); // Hackish...
 	$('#menu').css('width', '43em').css('padding-left', '1em');
@@ -125,6 +161,7 @@ $(document).ready(function() {
 		} else {
 			// We don't want to jump to any anchors in the page, thus...
 			location.href = location.href.split("#").shift() + "#" + this.id;
+			
 			// Load based on content
 			loadContent(this.id);
 		}
