@@ -220,7 +220,7 @@ hr {
 }
 
 #layout.normal #sidebar #nav #favourite {
-	background: #ccc url('http://www.scriptgenerator.net/img_gen/add_to_favorites.gif') 0% 50% no-repeat;
+	background: #ccc url('favourite.gif') 0% 50% no-repeat;
 }
 
 #layout.normal #sidebar #nav {
