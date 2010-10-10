@@ -61,7 +61,7 @@ function load_content($file) {
 
 		$html = "<div id=\"layout\" class=\"normal\">\n";
 		$html .= "<div id=\"imghead\">\n<h2 id=\"imgtitle\">$tittel</h2><h3 id=\"imgnum\">$requested_id/$last_id</h3></div>\n";
-		$html .= "<div id=\"imgwrap\"><img src=\"bilder/$fil\" height=\"700\" width=\"510\" alt=\"$beskrivelse\" /></div>\n";
+		$html .= "<div id=\"imgwrap\"><img src=\"bilder/$fil\" height=\"90%\" width=\"90%\" alt=\"$beskrivelse\" /></div>\n";
 		$html .= "<div id=\"sidebar\">\n";
 		$html .= "<div id=\"nav\">\n";
 		$html .= "<a href=\"?id=$prev_id\" id=\"prev\">&laquo; $prev_text</a>\n";
