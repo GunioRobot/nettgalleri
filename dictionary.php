@@ -7,7 +7,7 @@ $dictionary = array();
 // Menu
 $dictionary["home"] = array("no" => "hjem", "en" => "home");
 $dictionary["pictures"] = array("no" => "galleri", "en" => "gallery");
-$dictionary["information"] = array("no" => "informasjon", "en" => "information");
+$dictionary["information"] = array("no" => "om kunsteren", "en" => "the artist");
 $dictionary["review"] = array("no" => "omtale", "en" => "review");
 $dictionary["cv"] = array("no" => "cv", "en" => "cv");
 $dictionary["language"] = array("no" => "english", "en" => "norsk");
@@ -62,4 +62,15 @@ $dictionary["add_to_selection"] = array("no" => "Legg til utvalg", "en" => "Add 
 $dictionary["no_img_selection"] = array("no" => "Du har ingen bilder i ditt utvalg", "en" => "There are no images in your selection");
 $dictionary["help_img_selection"] = array("no" => "Du kan legge bilder til ditt utvalg ved å trykke på legg til utvalg-knappen i galleriet. Bildene som blir lagt til vil da vises på denne siden.", "en" => "You can add images to your selection by clicking the add to selection button in the gallery. The images added will then be shown at this page.");
 $dictionary["share_img_selection"] = array("no" => "Del ditt utvalg", "en" => "Share your selection");
+
+// About
+$dictionary["about"] = array("no" => "Om kunstneren", "en" => "About the artist");
+$dictionary["welcome"] = array("no" => "Velkommen til mitt galleri.", "en" => "Welcome to my gallery.");
+$dictionary["nameInfo"] = array("no" => "Mitt navn er Margrethe Hauglie-Hanssen og jeg er en kunster som hovedsakelig jobber med malerier. Temaene som mine verker omhandler gjenspeiles ofte i det samfunnet vi lever i. Jeg ønsker å fokusere på de områdene og gruppene i samfunnet som til tider blir noe glemt. Foruten min egen kunst har jeg hatt flere tillitsverv og ansvalige stillinger på gallerier rundt omkring i Norge.", "en" => "My name is Margrethe Haglie-Hanssen. I am an artist who mainly focuses on paintings. My topics of interest are usually connected to our Society.
+I want to focus on the areas and gruops in the Society that are sometimes forgotten. Other that my own art, I have had several positions in different galleries in Norway.");
+$dictionary["questions1"] = array("no" => "Dersom du har spørsmål, ta gjerne kontakt på ", "en" => "If you have any questions, do not hesitate to contact me by ");
+$dictionary["questions2"] = array("no" => ".Se også seksjonen CV for en full oversikt over utdanning og arbeid.", "en" => ".Also, see the CV section for a full overwiev of education and work.");
+$dictionary["email"] = array("no" => "e-post", "en" => "e-mail");
+$dictionary["sincerely"] = array("no" => "Med vennlig hilsen,", "en" => "Sincerely,");
+
 ?>
