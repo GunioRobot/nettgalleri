@@ -8,6 +8,20 @@ var images = {}; // A new JSON object, to contain information about all availabl
 var args = getUrlVars();
 
 /*
+ * Internet Explorer. You've created an enemy today.
+ */
+if(!Array.indexOf){
+    Array.prototype.indexOf = function(obj){
+        for(var i=0; i<this.length; i++){
+            if(this[i]==obj){
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+
+/*
  * Helper function to simplify the API.
  * Goes to the next image or to the first if we're at the end
  */
@@ -124,13 +138,12 @@ function getImagePositionByFilename(img) {
  */
 function toggleSelection() {
 	var elements = _getSelectionElements();
-
 	if (isImageInSelection(elements)) {
 		// We have already added the image to the selection, remove it then.
 		
 		// index HAS to be > -1, or something's screwed with isImageInSelection
 		var index = elements.indexOf(getFilename(image));
-	
+		
 		// Remove the element
 		elements.splice(index, 1);
 		$.cookie("aweSelection", elements.join(":"));
@@ -166,11 +179,15 @@ function toggleSelection() {
 }
 
 function _getSelectionElements() {
-	var sel = $.cookie("aweSelection") || '';
+	var sel = $.cookie("aweSelection");
+	if (sel == undefined) {
+		sel = '';
+	}
 	var elements = sel.split(":");
 	if (elements[0] == '') {
 		elements.shift();
 	}
+	
 	return elements;
 }
 
@@ -218,6 +235,11 @@ var fullscreen = false;
 
 // Handler for when the page is loaded
 $(document).ready(function() {
+	$('#favourite').click(function(e) {
+		e.preventDefault();
+		toggleSelection();
+	});
+	
 	// Handler for the zoom in function. 
 	$('#imgwrap a, #zoomin').click(function(e) {
 		fullscreen = !fullscreen;
@@ -225,20 +247,15 @@ $(document).ready(function() {
 	});
 	
 	// Handler for when the next image button is clicked.
-	$('#sidebar #next').click(function(e) { 
+	$('#next').click(function(e) { 
 		e.preventDefault();
 		next()
 	});
 	
 	// Handler for when the previous image button is clicked
-	$('#sidebar #prev').click(function(e) {
+	$('#prev').click(function(e) {
 		e.preventDefault();
 		previous()
-	});
-	
-	$('#sidebar #favourite').click(function(e) {
-		e.preventDefault();
-		toggleSelection();
 	});
 
 	// Let's load the image information in the page. 
