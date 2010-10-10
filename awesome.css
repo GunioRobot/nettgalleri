@@ -70,6 +70,7 @@ img {
 	text-transform: uppercase;
 	font-size: 0.9em;
 	background: #303033;
+	display: block;
 }
 
 #menu li:first-child a {
@@ -194,6 +195,7 @@ hr {
 
 #layout.normal #imgwrap #image {
 	width: 500px; /* Hoping all images are >= 500px, or this gets skewed */
+	height: auto; /* For IE, the obvious is obviously not obvious */
 }
 
 #layout.normal #sidebar #nav a {

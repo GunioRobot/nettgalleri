@@ -213,7 +213,6 @@ $('html').keydown(function(e) {
 	} 
 });
 
-
 // Global variable to be used with the "fullscreen" mode.
 var fullscreen = false;
 

@@ -68,7 +68,10 @@ function loadContent(page) {
  * Changes the language based on the set cookie.
  */
 function changeLanguage() {
-	var lang = $.cookie("language") || "no";
+	var lang = $.cookie("language");
+	if (lang == undefined) {
+		lang = 'no';
+	}
 	$.cookie("language", lang == "no" ? "en" : "no");
 
 	// Then reload the page.
@@ -101,6 +104,7 @@ $(document).ready(function() {
 	li.appendChild(a);
 	a.id = "utvalg";
 	a.innerHTML = $.cookie("language") == "en" ? "Your selection" : "Ditt utvalg";
+	a.href = "";
 	$('#menu').add(li);
 	$('#menu').get(0).insertBefore(li, $('#menu li').get($('#menu').find('li').length-1)); // Hackish...
 	$('#menu').css('width', '43em').css('padding-left', '1em');
