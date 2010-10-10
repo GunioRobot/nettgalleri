@@ -4,6 +4,8 @@ $dictionary = array();
 
 // *** Index translation ***
 
+$dictionary["site_title"] = array("no" => "Margrethe Hauglie-Hanssen – Norsk billedkunstner født 1956", "en" => "Margrethe Hauglie-Hanssen – Norwegian painter born in 1956");
+
 // Menu
 $dictionary["home"] = array("no" => "hjem", "en" => "home");
 $dictionary["pictures"] = array("no" => "galleri", "en" => "gallery");
@@ -52,7 +54,8 @@ $dictionary["cvsummary7"] = array("no" => "Undervisningshistorie med &aring;rsta
 $dictionary["cvsummary8"] = array("no" => "Oppdrag med &aring;r.", "en" => "Commission with year.", "en" => "");
 $dictionary["cvsummary9"] = array("no" => "Viser medlemskapsoversikt.", "en" => "Showing memberships.");
 
-// Gallery
+
+// *** Gallery translation ***
 $dictionary["prev_img"] = array("no" => "Forrige bilde", "en" => "Previous image");
 $dictionary["next_img"] = array("no" => "Neste bilde", "en" => "Next image");
 $dictionary["zoomin"] = array("no" => "Forst&oslash;rr", "en" => "Zoom in");
@@ -80,7 +83,7 @@ Siden tillater deg som bruker å endre fontstørrelse. Videre fungerer galleriet
 The page allows you as user to change font size of the text presented. Furthermore, the gallery section lets you navigate using both keyboard and the mouse. We hope that this site gives you the best possible experience when browsing the gallery.");
 $dictionary["plannedExhibits"] = array("no" => "Det er ikke planlagt noen utstilling i den nærmeste fremtid. Vennligst følg med på siden for oppdateringer.", "en" => "No exhibits are planned in the near future. Please keep updated on this gallery site.");
 
-// Omtaler
+// Omtaler + lithographies
 $dictionary["read"] = array("no" => "Les mer", "en" => "Read more");
 $dictionary["pdf"] = array("no" => "(PDF-dokument)", "en" => "(PDF document)");
 $dictionary["reviews"] = array("no" => "omtaler", "en" => "reviews");
@@ -94,5 +97,11 @@ $dictionary["r1p2"] = array("no" => "Utdrag fra tidsskrift \"Kunst For Alle\" - 
 $dictionary["r2p1"] = array("no" => "12 billedkunstnere fra Follo har fylt opp veggene i Drøbak Varmbad denne sommeren. Utstillingen åpner lørdag 28. juni 2008.", "en" => "This summer 12 picture artists from Follo have filled up the walls in \"Drøbak Varmbad\". The exhibit opens saturday, 28th of June, 2008.");
 $dictionary["morep1"] = array("no" => "En vil legge fortløpende informasjon om utstillinger, tilbakemeldinger og andre relevante nyheter her. Nyeste nyheter legges til på toppen.", "en" => "New information about exhibits, reviews and other relevant news will be added continously. Most recent additions are found at the top of this page.");
 
+$dictionary[""] = array("no" => "", "en" => "");
+$dictionary[""] = array("no" => "", "en" => "");
+$dictionary[""] = array("no" => "", "en" => "");
+$dictionary[""] = array("no" => "", "en" => "");
+$dictionary[""] = array("no" => "", "en" => "");
+$dictionary[""] = array("no" => "", "en" => "");
 
 ?>
