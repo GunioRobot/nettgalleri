@@ -102,6 +102,7 @@ $dictionary["r2p1"] = array("no" => "12 billedkunstnere fra Follo har fylt opp v
 $dictionary["morep1"] = array("no" => "En vil legge fortløpende informasjon om utstillinger, tilbakemeldinger og andre relevante nyheter her. Nyeste nyheter legges til på toppen.", "en" => "New information about exhibits, reviews and other relevant news will be added continously. Most recent additions are found at the top of this page.");
 
 // Lithographies
+$dictionary["lithography"] = array("no" => "Litografier", "en" => "Lithographies");
 $dictionary["lithographyInfo"] = array("no" => "Jeg lager også litografier. 3 eksempler på litografier finner du nedenfor.", "en" => "I also make lithographies. You find 3 examples of my lithography work below.");
 $dictionary["lit1"] = array("no" => "Litografi 1", "en" => "Lithography 1");
 $dictionary["lit2"] = array("no" => "Litografi 2", "en" => "Lithography 2");
