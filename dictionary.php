@@ -69,7 +69,7 @@ $dictionary["welcome"] = array("no" => "Velkommen til mitt galleri.", "en" => "W
 $dictionary["nameInfo"] = array("no" => "Mitt navn er Margrethe Hauglie-Hanssen og jeg er en kunster som hovedsakelig jobber med malerier. Temaene som mine verker omhandler gjenspeiles ofte i det samfunnet vi lever i. Jeg ønsker å fokusere på de områdene og gruppene i samfunnet som til tider blir noe glemt. Foruten min egen kunst har jeg hatt flere tillitsverv og ansvalige stillinger på gallerier rundt omkring i Norge.", "en" => "My name is Margrethe Haglie-Hanssen. I am an artist who mainly focuses on paintings. My topics of interest are usually connected to our Society.
 I want to focus on the areas and gruops in the Society that are sometimes forgotten. Other that my own art, I have had several positions in different galleries in Norway.");
 $dictionary["questions1"] = array("no" => "Dersom du har spørsmål, ta gjerne kontakt på ", "en" => "If you have any questions, do not hesitate to contact me by ");
-$dictionary["questions2"] = array("no" => ".Se også seksjonen CV for en full oversikt over utdanning og arbeid.", "en" => ".Also, see the CV section for a full overwiev of education and work.");
+$dictionary["questions2"] = array("no" => ".Se også seksjonen CV for en full oversikt over utdanning og arbeid.", "en" => ". Also, see the CV section for a full overwiev of education and work.");
 $dictionary["email"] = array("no" => "e-post", "en" => "e-mail");
 $dictionary["sincerely"] = array("no" => "Med vennlig hilsen,", "en" => "Sincerely,");
 
