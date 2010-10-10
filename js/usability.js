@@ -139,7 +139,7 @@ $(document).ready(function() {
 	a.href = "";
 	$('#menu').add(li);
 	$('#menu').get(0).insertBefore(li, $('#menu li').get($('#menu').find('li').length-1)); // Hackish...
-	$('#menu').css('width', '43em').css('padding-left', '1em');
+	$('#menu').css('width', '48em').css('padding-left', '3em');
 		
 	// Add on click handler for the font size changer.
 	$('#font-sizer li a').click(function(e) {

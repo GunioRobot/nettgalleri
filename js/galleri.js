@@ -89,7 +89,7 @@ function display() {
 	// We have to update the selection text if the image is added in our selection.
 	var selText = $.cookie("language") == "en" ? "Add to selection" : "Legg til utvalg";
 	if (isImageInSelection()) {
-		selText = $.cookie("language") == "en" ? "Remove from selection" : "Fjern fra utvalg";
+		selText = $.cookie("language") == "en" ? "Deselect" : "Fjern fra utvalg";
 	}
 	$('#favourite').get(0).innerHTML = selText;
 	
@@ -112,7 +112,6 @@ function writeURL() {
 		if (code != '') {
 			location.href += "/" + code;
 		}
-		setShareURLs();
 	}
 }
 
@@ -173,7 +172,7 @@ function toggleSelection() {
 		// We have not added the image to the selection, add it.
 		elements.push(getFilename(image));
 		
-		$('#favourite').get(0).innerHTML = $.cookie("language") == "en" ? "Remove from selection" : "Fjern fra utvalg";
+		$('#favourite').get(0).innerHTML = $.cookie("language") == "en" ? "Deselect" : "Fjern fra utvalg";
 		$.cookie("aweSelection", elements.join(":"));
 	}
 }
@@ -215,9 +214,8 @@ function generateShareURL() {
 	return $.base64Encode(sel);	
 }
 
-function setShareURLs() {
-	var url = window.location.protocol + "//" + window.location.host + (window.location.pathname || '/') + "#utvalg/" + getFilename(image) + "/" + generateShareURL();
-	$('#share a').attr('href', url).attr('innerHTML', url);
+function getShareURL() {
+	return url = window.location.protocol + "//" + window.location.host + (window.location.pathname || '/') + "#utvalg/" + getFilename(image) + "/" + generateShareURL();
 }
 
 // Keyboard nagivation using the left and right keys.
@@ -256,6 +254,12 @@ $(document).ready(function() {
 	$('#prev').click(function(e) {
 		e.preventDefault();
 		previous()
+	});
+
+	$('#share a').click(function(e) {
+		e.preventDefault();
+		var msg = $.cookie('language') == "en" ? "Copy and paste the Web address below to where you want to share it." : "Kopier og lim inn nettadressen under til hvor du ønsker å dele den.";
+		prompt(msg, getShareURL());
 	});
 
 	// Let's load the image information in the page. 

@@ -49,7 +49,7 @@ img {
 	padding: 0;
 	padding-bottom: 1.5em;
 	margin: 0 auto;
-	width: 34em;
+	width: 39em;
 	margin-bottom: 1em;
 }
 
@@ -198,7 +198,7 @@ hr {
 	height: auto; /* For IE, the obvious is obviously not obvious */
 }
 
-#layout.normal #sidebar #nav a {
+#layout.normal #sidebar #nav a, #layout.normal #sidebar #share a {
 	background-color: #ccc;
 	border-radius: 5px;
 	text-shadow: 0px 1px 0px #fff;
@@ -208,11 +208,18 @@ hr {
 	width: 145px;
 	display: block;
 	float: left;
-	padding: 5px 10px;
+	padding: 8px 10px;
 	text-align: center;
 }
 
-#layout.normal #sidebar #nav #next:hover, #layout.normal #sidebar #nav #prev:hover, #layout.normal #sidebar #nav #zoomin:hover, #layout.normal #sidebar #nav #favourite:hover {
+#layout.normal #sidebar #share a {
+	float: none;
+	width: 330px;
+	padding: 10px;
+	background: #ccc url('share.gif') 20% 50% no-repeat !important;
+}
+
+#layout.normal #sidebar #nav #next:hover, #layout.normal #sidebar #nav #prev:hover, #layout.normal #sidebar #nav #zoomin:hover, #layout.normal #sidebar #nav #favourite:hover, #layout.normal #sidebar #share a:hover  {
 	background-color: #eee;
 }
 
@@ -226,6 +233,9 @@ hr {
 
 #layout.normal #sidebar #nav #favourite {
 	background: #ccc url('favourite.gif') 0% 50% no-repeat;
+	padding-left: 25px;
+	width: 130px;
+	text-align: center;
 }
 
 #layout.normal #sidebar #nav {
