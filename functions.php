@@ -59,41 +59,18 @@ function load_content($file) {
 		$fil = $pics[$index]->filnavn;
 		$beskrivelse = ($lang == "no") ? $pics[$index]->beskrivelse_no : $pics[$index]->beskrivelse_en;
 
-/*	
-<div id="layout" class="normal">
-	<div id="imghead"><h2 id="imgtitle"></h2><h3 id="imgnum">0 / 0</h3></div>
-	<div id="imgwrap"><a href="#"></a></div>
-	<div id="sidebar">
-		<div id="nav">
-			<a href="#" id="prev">&laquo; ${prev_img}</a>
-			<a href="#" id="next">${next_img} &raquo;</a>
-			<a href="#" id="zoomin">${zoomin}</a>
-			<a href="#" id="favourite">${add_to_selection}</a>
-		</div>
-		<div class="clear"></div>
-		<p id="description"></p>
-	</div>
-	<div class="clear"></div>
-</div>
-<div id="info">
-	<h2>${no_img_selection}</h2>
-	<p>${help_img_selection}</p>
-</div>
-*/
-
-		$html = "<div class=\"picture\">\n";
-		$html .= "<h4>$tittel</h4>\n";
-		$html .= "<p><img src=\"bilder/$fil\" height=\"400\" width=\"300\" alt=\"$tittel\" /></p>\n";
-		$html .= "<p>$beskrivelse</p>\n";
-		
+		$html = "<div id=\"layout\" class=\"normal\">\n";
+		$html .= "<div id=\"imghead\">\n<h2 id=\"imgtitle\">$tittel</h2><h3 id=\"imgnum\">$requested_id/$last_id</h3></div>\n";
+		$html .= "<div id=\"imgwrap\"><img src=\"bilder/$fil\" height=\"700\" width=\"510\" alt=\"$beskrivelse\" /></div>\n";
+		$html .= "<div id=\"sidebar\">\n";
+		$html .= "<div id=\"nav\">\n";
+		$html .= "<a href=\"?id=$prev_id\" id=\"prev\">&laquo; $prev_text</a>\n";
+		$html .= "<a href=\"?id=$next_id\" id=\"next\">$next_text &raquo;</a>\n";
 		$html .= "</div>\n";
-		
-		$html .= "<div class=\"navigate\">\n";
-		$html .= "<p>$requested_id/" .count($pics) ."</p>";
-		$html .= "<p>\n";
-		$html .= "<a href=\"?id=$prev_id\">$prev_text</a>\n";
-		$html .= "<a href=\"?id=$next_id\">$next_text</a>\n";
-		$html .= "</p>\n";
+		$html .= "<div class=\"clear\"></div>\n";
+		$html .= "<p id=\"description\">$beskrivelse</p>\n";
+		$html .= "</div>\n";
+		$html .= "<div class=\"clear\"></div>\n";
 		$html .= "</div>\n";
 		
 		return $html;	
