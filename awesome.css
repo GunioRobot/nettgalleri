@@ -137,9 +137,6 @@ hr {
 }
 
 #imgwrap {
-	background: url('loading.gif') top center no-repeat;
-	min-height: 100px;
-	width: 900px;
 	text-align: center;
 }
 
@@ -150,6 +147,12 @@ hr {
 
 #imghead {
 	clear: both;
+}
+
+.loading {
+	background: url('loading.gif') top center no-repeat;
+	min-height: 100px;
+	width: 900px;
 }
 
 /* Let's make a fullscreen and normal screen layout */

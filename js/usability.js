@@ -46,9 +46,12 @@ function getUrlVars() {
  * homepage if an error occurs (or the page doesn't exist).
  */
 function loadContent(page) {
-	$('#content').hide()
+	// Not very pretty...
+	$('#content').get(0).innerHTML = '';
+	$('#content').attr('class', 'loading')
 				 .load('innhold/' + page + '.php', function() {
-				 	$(this).fadeIn()
+				 	$(this).attr('class', '');
+				 	$(this).fadeIn();
 				 });
 				 			 
 	// Recurse and fallback to home if the page is not found.
