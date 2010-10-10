@@ -80,5 +80,19 @@ Siden tillater deg som bruker å endre fontstørrelse. Videre fungerer galleriet
 The page allows you as user to change font size of the text presented. Furthermore, the gallery section lets you navigate using both keyboard and the mouse. We hope that this site gives you the best possible experience when browsing the gallery.");
 $dictionary["plannedExhibits"] = array("no" => "Det er ikke planlagt noen utstilling i den nærmeste fremtid. Følg med på siden for oppdateringer eller meld deg på nyhetsbrevet lenger ned på siden.", "en" => "No exhibits are planned in the near future. Please keep updated on this gallery site, or subscribe on the newsletter at the bottom of this page.");
 
+// Omtaler
+$dictionary["read"] = array("no" => "Les mer", "en" => "Read more");
+$dictionary["pdf"] = array("no" => "(PDF-dokument)", "en" => "(PDF document)");
+$dictionary["reviews"] = array("no" => "omtaler", "en" => "reviews");
+$dictionary["review1"] = array("no" => "Kunst For Alle", "en" => "Kunst For Alle");
+$dictionary["review2"] = array("no" => "Østlandets blad - Utstilling", "en" => "Østlandets blad - Exhibit");
+$dictionary["more"] = array("no" => "Flere innlegg", "en" => "More reviews");
+
+$dictionary["r1p1"] = array("no" => "Margrethe Hauglie-Hanssen maler følsomme kvinneprotretter. De er anonmyme og samtidig deg og meg og alle kvinner i hele verden. 
+Vi møter oss selv og alle turbulente følelser i hennes billedserie. Ordnet og satt i scene gir de oss mot og styrke til å våge nærkontakt med egne, ufordøyde minner.", "en" => "Margrethe Hauglie-Hanssen paints sensitive portraits of women. They are anonymous, but at the same time you, me and all other women in the world. We meet ourselves and all intense feelings in her gallery. Ordered and placed in scene, they give us courage and strength to close up to our own memories.");
+$dictionary["r1p2"] = array("no" => "Utdrag fra tidsskrift \"Kunst For Alle\" - Aase Rostad", "en" => "Extract from paper \"Kunst For Alle\" - Aase Rostad");
+$dictionary["r2p1"] = array("no" => "12 billedkunstnere fra Follo har fylt opp veggene i Drøbak Varmbad denne sommeren. Utstillingen åpner lørdag 28. juni 2008.", "en" => "This summer 12 picture artists from Follo have filled up the walls in \"Drøbak Varmbad\". The exhibit opens saturday, 28th of June, 2008.");
+$dictionary["morep1"] = array("no" => "En vil legge fortløpende informasjon om utstillinger, tilbakemeldinger og andre relevante nyheter her. Nyeste nyheter legges til på toppen.", "en" => "New information about exhibits, reviews and other relevant news will be added continously. Most recent additions are found at the top of this page.");
+
 
 ?>
