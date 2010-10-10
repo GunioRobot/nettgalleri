@@ -64,10 +64,13 @@ function display() {
 	// Hide the image to ensure that we see the AJAX loader.
 	$('#image').hide();
 
+	// Current language with fallback to Norwegian
+	var lang = $.cookie("language") || "no"; 
+	
 	// Updates the page elements with the image data.
-	$('#imgtitle').get(0).innerHTML = images.bilde[image].tittel;
+	$('#imgtitle').get(0).innerHTML = images.bilde[image].tittel[lang];
 	$('#imgnum').get(0).innerHTML = parseInt(image) + 1 + " / " + images.bilde.length;
-	$('#description').get(0).innerHTML = images.bilde[image].beskrivelse;
+	$('#description').get(0).innerHTML = images.bilde[image].beskrivelse[lang];
 	
 	// We have to update the selection text if the image is added in our selection.
 	var selText = $.cookie("language") == "en" ? "Add to selection" : "Legg til utvalg";
@@ -160,9 +163,6 @@ function toggleSelection() {
 		$('#favourite').get(0).innerHTML = $.cookie("language") == "en" ? "Remove from selection" : "Fjern fra utvalg";
 		$.cookie("aweSelection", elements.join(":"));
 	}
-	
-	
-	
 }
 
 function _getSelectionElements() {
@@ -199,7 +199,7 @@ function generateShareURL() {
 }
 
 function setShareURLs() {
-	var url = window.location.protocol + "//" + window.location.host + "/" + (window.location.path || '') + "#utvalg/" + getFilename(image) + "/" + generateShareURL();
+	var url = window.location.protocol + "//" + window.location.host + (window.location.pathname || '/') + "#utvalg/" + getFilename(image) + "/" + generateShareURL();
 	$('#share a').attr('href', url).attr('innerHTML', url);
 }
 
@@ -262,7 +262,6 @@ $(document).ready(function() {
 				
 				if (!found) {
 					images.bilde.splice(i, 1);
-//					i = 0;
 				} else {
 					i++;
 				}

@@ -109,7 +109,7 @@ function load_content($file) {
 $bilder = array();
 
 function get_gallery() {
-	$file = "bilder2.xml";
+	$file = "bilder.xml";
 	global $xml_tittel_no, $xml_tittel_en, $xml_fil_key, $xml_beskrivelse_no, $xml_beskrivelse_en;
 	$xml_tittel_no = "*GALLERI*BILDE*TITTEL*NO";
 	$xml_tittel_en = "*GALLERI*BILDE*TITTEL*EN";
