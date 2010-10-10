@@ -58,7 +58,29 @@ function load_content($file) {
 		$tittel = ($lang == "no") ? $pics[$index]->tittel_no : $pics[$index]->tittel_en;
 		$fil = $pics[$index]->filnavn;
 		$beskrivelse = ($lang == "no") ? $pics[$index]->beskrivelse_no : $pics[$index]->beskrivelse_en;
-	
+
+/*	
+<div id="layout" class="normal">
+	<div id="imghead"><h2 id="imgtitle"></h2><h3 id="imgnum">0 / 0</h3></div>
+	<div id="imgwrap"><a href="#"></a></div>
+	<div id="sidebar">
+		<div id="nav">
+			<a href="#" id="prev">&laquo; ${prev_img}</a>
+			<a href="#" id="next">${next_img} &raquo;</a>
+			<a href="#" id="zoomin">${zoomin}</a>
+			<a href="#" id="favourite">${add_to_selection}</a>
+		</div>
+		<div class="clear"></div>
+		<p id="description"></p>
+	</div>
+	<div class="clear"></div>
+</div>
+<div id="info">
+	<h2>${no_img_selection}</h2>
+	<p>${help_img_selection}</p>
+</div>
+*/
+
 		$html = "<div class=\"picture\">\n";
 		$html .= "<h4>$tittel</h4>\n";
 		$html .= "<p><img src=\"bilder/$fil\" height=\"400\" width=\"300\" alt=\"$tittel\" /></p>\n";

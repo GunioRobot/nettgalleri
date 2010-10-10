@@ -13,7 +13,7 @@ $dictionary["cv"] = array("no" => "cv", "en" => "cv");
 $dictionary["language"] = array("no" => "english", "en" => "norsk");
 
 // Footer
-$dictionary["gallery"] = array("no" => "Galleri Awesome", "en" => "Gallery awesome");
+$dictionary["gallery"] = array("no" => "Galleri Awesome", "en" => "Gallery Awesome");
 $dictionary["created"] = array("no" => "er laget av oss", "en" => "is created by us");
 $dictionary["contact"] = array("no" => "Kontakt", "en" => "Contact");
 
