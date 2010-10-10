@@ -8,14 +8,14 @@ $dictionary["site_title"] = array("no" => "Margrethe Hauglie-Hanssen – Norsk b
 
 // Menu
 $dictionary["home"] = array("no" => "hjem", "en" => "home");
-$dictionary["pictures"] = array("no" => "galleri", "en" => "gallery");
+$dictionary["pictures"] = array("no" => "bilder", "en" => "pictures");
 $dictionary["information"] = array("no" => "om kunsteren", "en" => "the artist");
 $dictionary["review"] = array("no" => "omtale", "en" => "review");
 $dictionary["cv"] = array("no" => "cv", "en" => "cv");
-$dictionary["language"] = array("no" => "english", "en" => "norsk");
+$dictionary["language"] = array("no" => "switch to english", "en" => "bytt til norsk");
 
 // Footer
-$dictionary["gallery"] = array("no" => "Galleri Awesome", "en" => "Gallery Awesome");
+$dictionary["gallery"] = array("no" => "Galleri Margrethe Hauglie-Hanssen", "en" => "Gallery Margrethe Hauglie-Hanssen");
 $dictionary["created"] = array("no" => "er laget av oss", "en" => "is created by us");
 $dictionary["contact"] = array("no" => "Kontakt", "en" => "Contact");
 
@@ -56,6 +56,8 @@ $dictionary["cvsummary9"] = array("no" => "Viser medlemskapsoversikt.", "en" => 
 
 
 // *** Gallery translation ***
+
+// Navigation
 $dictionary["prev_img"] = array("no" => "Forrige bilde", "en" => "Previous image");
 $dictionary["next_img"] = array("no" => "Neste bilde", "en" => "Next image");
 $dictionary["zoomin"] = array("no" => "Forst&oslash;rr", "en" => "Zoom in");
@@ -66,24 +68,26 @@ $dictionary["no_img_selection"] = array("no" => "Du har ingen bilder i ditt utva
 $dictionary["help_img_selection"] = array("no" => "Du kan legge bilder til ditt utvalg ved å trykke på legg til utvalg-knappen i galleriet. Bildene som blir lagt til vil da vises på denne siden.", "en" => "You can add images to your selection by clicking the add to selection button in the gallery. The images added will then be shown at this page.");
 $dictionary["share_img_selection"] = array("no" => "Del ditt utvalg", "en" => "Share your selection");
 
-// About
+// *** About translation
 $dictionary["about"] = array("no" => "Om kunstneren", "en" => "About the artist");
 $dictionary["welcome"] = array("no" => "Velkommen til mitt galleri.", "en" => "Welcome to my gallery.");
 $dictionary["nameInfo"] = array("no" => "Mitt navn er Margrethe Hauglie-Hanssen og jeg er en kunster som hovedsakelig jobber med malerier. Temaene som mine verker omhandler gjenspeiles ofte i det samfunnet vi lever i. Jeg ønsker å fokusere på de områdene og gruppene i samfunnet som til tider blir noe glemt. Foruten min egen kunst har jeg hatt flere tillitsverv og ansvalige stillinger på gallerier rundt omkring i Norge.", "en" => "My name is Margrethe Haglie-Hanssen. I am an artist who mainly focuses on paintings. My topics of interest are usually connected to our Society.
 I want to focus on the areas and gruops in the Society that are sometimes forgotten. Other that my own art, I have had several positions in different galleries in Norway.");
 $dictionary["questions1"] = array("no" => "Dersom du har spørsmål, ta gjerne kontakt på ", "en" => "If you have any questions, do not hesitate to contact me by ");
-$dictionary["questions2"] = array("no" => ".Se også seksjonen CV for en full oversikt over utdanning og arbeid.", "en" => ". Also, see the CV section for a full overwiev of education and work.");
+$dictionary["questions2"] = array("no" => ". Se også seksjonen CV for en full oversikt over utdanning og arbeid.", "en" => ". Also, see the CV section for a full overwiev of education and work.");
 $dictionary["email"] = array("no" => "e-post", "en" => "e-mail");
 $dictionary["sincerely"] = array("no" => "Med vennlig hilsen,", "en" => "Sincerely,");
 
-// Home
-$dictionary["welcomeHome"] = array("no" => "Velkommen til Galleri Awesome!", "en" => "Welcome to Gallery Awesome!");
+// *** Home translation ***
+$dictionary["welcomeHome"] = array("no" => "Velkommen til Galleri Margrethe Hauglie-Hanssen!", "en" => "Welcome to Gallery Margrethe Hauglie-Hanssen!");
 $dictionary["aboutGallery"] = array("no" => "Her kan en bla seg gjennom diverse bilder som er blitt utstilt i siste årene. Gallerisiden er utformet slik at alle skal kunne få glede av den. Siden følger retningslinjene satt i WCAG (Web Content Accessibility Guidlines) 1.0.
 Siden tillater deg som bruker å endre fontstørrelse. Videre fungerer galleriet slik at man både kan bruke tastaturet og musen til navigasjon. Vi håper at sidens utforming gir deg som bruker en best mulig opplevelse av galleriet.", "en" => "Here you can browse through pictures that have been presented over the past years. The gallery page is developed with accessibility in focus. It follows the guidelines given in WCAG (Web Content Accessibility Guidelines) 1.0.
 The page allows you as user to change font size of the text presented. Furthermore, the gallery section lets you navigate using both keyboard and the mouse. We hope that this site gives you the best possible experience when browsing the gallery.");
 $dictionary["plannedExhibits"] = array("no" => "Det er ikke planlagt noen utstilling i den nærmeste fremtid. Vennligst følg med på siden for oppdateringer.", "en" => "No exhibits are planned in the near future. Please keep updated on this gallery site.");
 
-// Omtaler + lithographies
+// *** Reviews translation
+
+// Reviews
 $dictionary["read"] = array("no" => "Les mer", "en" => "Read more");
 $dictionary["pdf"] = array("no" => "(PDF-dokument)", "en" => "(PDF document)");
 $dictionary["reviews"] = array("no" => "omtaler", "en" => "reviews");
@@ -97,11 +101,10 @@ $dictionary["r1p2"] = array("no" => "Utdrag fra tidsskrift \"Kunst For Alle\" - 
 $dictionary["r2p1"] = array("no" => "12 billedkunstnere fra Follo har fylt opp veggene i Drøbak Varmbad denne sommeren. Utstillingen åpner lørdag 28. juni 2008.", "en" => "This summer 12 picture artists from Follo have filled up the walls in \"Drøbak Varmbad\". The exhibit opens saturday, 28th of June, 2008.");
 $dictionary["morep1"] = array("no" => "En vil legge fortløpende informasjon om utstillinger, tilbakemeldinger og andre relevante nyheter her. Nyeste nyheter legges til på toppen.", "en" => "New information about exhibits, reviews and other relevant news will be added continously. Most recent additions are found at the top of this page.");
 
-$dictionary[""] = array("no" => "", "en" => "");
-$dictionary[""] = array("no" => "", "en" => "");
-$dictionary[""] = array("no" => "", "en" => "");
-$dictionary[""] = array("no" => "", "en" => "");
-$dictionary[""] = array("no" => "", "en" => "");
-$dictionary[""] = array("no" => "", "en" => "");
+// Lithographies
+$dictionary["lithographyInfo"] = array("no" => "Jeg lager også litografier. 3 eksempler på litografier finner du nedenfor.", "en" => "I also make lithographies. You find 3 examples of my lithography work below.");
+$dictionary["lit1"] = array("no" => "Litografi 1", "en" => "Lithography 1");
+$dictionary["lit2"] = array("no" => "Litografi 2", "en" => "Lithography 2");
+$dictionary["lit3"] = array("no" => "Litografi 3", "en" => "Lithography 3");
 
 ?>
