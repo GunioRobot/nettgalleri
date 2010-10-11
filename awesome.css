@@ -156,6 +156,12 @@ hr {
 	width: 900px;
 }
 
+#front-img {
+	width: 597px;
+	display: block;
+	margin: 0 auto;
+}
+
 /* Let's make a fullscreen and normal screen layout */
 .clear {
 	clear: both;
