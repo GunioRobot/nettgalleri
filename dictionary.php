@@ -104,8 +104,8 @@ $dictionary["morep1"] = array("no" => "En vil legge fortløpende informasjon om 
 // Lithographies
 $dictionary["lithography"] = array("no" => "Litografier", "en" => "Lithographies");
 $dictionary["lithographyInfo"] = array("no" => "Jeg lager også litografier. 3 eksempler på litografier finner du nedenfor.", "en" => "I also make lithographies. You find 3 examples of my lithography work below.");
-$dictionary["lit1"] = array("no" => "Litografi 1", "en" => "Lithography 1");
-$dictionary["lit2"] = array("no" => "Litografi 2", "en" => "Lithography 2");
-$dictionary["lit3"] = array("no" => "Litografi 3", "en" => "Lithography 3");
+$dictionary["lit1"] = array("no" => "Konkylie og menneske på en strand", "en" => "Shell and person on a beach");
+$dictionary["lit2"] = array("no" => "Kvinneskikkelse sort/hvitt", "en" => "Woman black/white");
+$dictionary["lit3"] = array("no" => "Kvinneskikkelse i farger", "en" => "Woman in color");
 
 ?>
