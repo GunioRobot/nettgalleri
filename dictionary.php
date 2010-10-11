@@ -70,15 +70,15 @@ $dictionary["share_img_selection"] = array("no" => "Del dette utvalget", "en" =>
 
 // *** About translation
 $dictionary["about"] = array("no" => "Om kunstneren", "en" => "About the artist");
-$dictionary["welcome"] = array("no" => "Velkommen til mitt galleri.", "en" => "Welcome to my gallery.");
-$dictionary["nameInfo"] = array("no" => "Mitt navn er Margrethe Hauglie-Hanssen og jeg er en kunster som hovedsakelig jobber med malerier. Temaene som mine verker omhandler gjenspeiles ofte i det samfunnet vi lever i. Jeg ønsker å fokusere på de områdene og gruppene i samfunnet som til tider blir noe glemt. Foruten min egen kunst har jeg hatt flere tillitsverv og ansvalige stillinger på gallerier rundt omkring i Norge.", "en" => "My name is Margrethe Haglie-Hanssen. I am an artist who mainly focuses on paintings. My topics of interest are usually connected to our Society.
-I want to focus on the areas and gruops in the Society that are sometimes forgotten. Other that my own art, I have had several positions in different galleries in Norway.");
-$dictionary["questions1"] = array("no" => "Dersom du har spørsmål, ta gjerne kontakt på ", "en" => "If you have any questions, do not hesitate to contact me by ");
+$dictionary["nameInfo"] = array("no" => "Margrethe Hauglie-Hanssen er en kunster som hovedsakelig jobber med malerier. Temaene hennes verker omhandler gjenspeiles ofte i det samfunnet vi lever i. Hun ønsker å fokusere på de områdene og gruppene i samfunnet som til tider blir noe glemt. Foruten sin egen kunst har hun hatt flere tillitsverv og ansvalige stillinger på gallerier rundt omkring i Norge.", "en" => "Margrethe Haglie-Hanssen is an artist who mainly focuses on paintings. Her topics of interest are usually connected to our Society.
+She wants to focus on the areas and groups in the Society that are sometimes forgotten. Other than her own art, Hanssen has had several positions in different galleries in Norway.");
+$dictionary["questions1"] = array("no" => "Dersom du har spørsmål, ta gjerne kontakt på ", "en" => "If you have any questions, do not hesitate to send an ");
 $dictionary["questions2"] = array("no" => ". Se også seksjonen CV for en full oversikt over utdanning og arbeid.", "en" => ". Also, see the CV section for a full overwiev of education and work.");
 $dictionary["email"] = array("no" => "e-post", "en" => "e-mail");
 $dictionary["sincerely"] = array("no" => "Med vennlig hilsen,", "en" => "Sincerely,");
 
 // *** Home translation ***
+$dictionary["welcome"] = array("no" => "Velkommen til mitt galleri.", "en" => "Welcome to my gallery.");
 $dictionary["welcomeHome"] = array("no" => "Velkommen til Galleri Margrethe Hauglie-Hanssen!", "en" => "Welcome to Gallery Margrethe Hauglie-Hanssen!");
 $dictionary["aboutGallery"] = array("no" => "Her kan en bla seg gjennom diverse bilder som er blitt utstilt i siste årene. Gallerisiden er utformet slik at alle skal kunne få glede av den. Siden følger retningslinjene satt i WCAG (Web Content Accessibility Guidlines) 1.0.
 Siden tillater deg som bruker å endre fontstørrelse. Videre fungerer galleriet slik at man både kan bruke tastaturet og musen til navigasjon. Vi håper at sidens utforming gir deg som bruker en best mulig opplevelse av galleriet.", "en" => "Here you can browse through pictures that have been presented over the past years. The gallery page is developed with accessibility in focus. It follows the guidelines given in WCAG (Web Content Accessibility Guidelines) 1.0.
