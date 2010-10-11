@@ -15,8 +15,8 @@ $dictionary["cv"] = array("no" => "cv", "en" => "cv");
 $dictionary["language"] = array("no" => "switch to english", "en" => "bytt til norsk");
 
 // Footer
-$dictionary["gallery"] = array("no" => "Galleri Margrethe Hauglie-Hanssen", "en" => "Gallery Margrethe Hauglie-Hanssen");
-$dictionary["created"] = array("no" => "er laget av oss", "en" => "is created by us");
+$dictionary["gallery"] = array("no" => "Galleriet", "en" => "The gallery");
+$dictionary["created"] = array("no" => "er utformet av", "en" => "is developed by");
 $dictionary["contact"] = array("no" => "Kontakt", "en" => "Contact");
 
 
@@ -78,8 +78,8 @@ $dictionary["email"] = array("no" => "e-post", "en" => "e-mail");
 $dictionary["sincerely"] = array("no" => "Med vennlig hilsen,", "en" => "Sincerely,");
 
 // *** Home translation ***
-$dictionary["welcome"] = array("no" => "Velkommen til mitt galleri.", "en" => "Welcome to my gallery.");
-$dictionary["welcomeHome"] = array("no" => "Velkommen til Galleri Margrethe Hauglie-Hanssen!", "en" => "Welcome to Gallery Margrethe Hauglie-Hanssen!");
+$dictionary["welcome"] = array("no" => "Velkommen til galleriet.", "en" => "Welcome to the gallery.");
+$dictionary["welcomeHome"] = array("no" => "Velkommen til galleriet!", "en" => "Welcome to the gallery!");
 $dictionary["aboutGallery"] = array("no" => "Her kan en bla seg gjennom diverse bilder som er blitt utstilt i siste årene. Gallerisiden er utformet slik at alle skal kunne få glede av den. Siden følger retningslinjene satt i WCAG (Web Content Accessibility Guidlines) 1.0.
 Siden tillater deg som bruker å endre fontstørrelse. Videre fungerer galleriet slik at man både kan bruke tastaturet og musen til navigasjon. Vi håper at sidens utforming gir deg som bruker en best mulig opplevelse av galleriet.", "en" => "Here you can browse through pictures that have been presented over the past years. The gallery page is developed with accessibility in focus. It follows the guidelines given in WCAG (Web Content Accessibility Guidelines) 1.0.
 The page allows you as user to change font size of the text presented. Furthermore, the gallery section lets you navigate using both keyboard and the mouse. We hope that this site gives you the best possible experience when browsing the gallery.");
