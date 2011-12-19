@@ -47,14 +47,14 @@ function load_content($file) {
 		$requested_id = get_id();
 
 		$index = $requested_id-1;
-	
+
 		// Make navigation links
 		$next_id = ($requested_id == $last_id) ? $first_id : ($requested_id+1);
 		$prev_id = ($requested_id == $first_id) ? $last_id : ($requested_id-1);
 		$next_text = ($lang == "no") ? "Neste bilde" : "Next picture";
 		$prev_text = ($lang == "no") ? "Forrige bilde" : "Previous picture";
 
-	
+
 		$tittel = ($lang == "no") ? $pics[$index]->tittel_no : $pics[$index]->tittel_en;
 		$fil = $pics[$index]->filnavn;
 		$beskrivelse = ($lang == "no") ? $pics[$index]->beskrivelse_no : $pics[$index]->beskrivelse_en;
@@ -72,19 +72,19 @@ function load_content($file) {
 		$html .= "</div>\n";
 		$html .= "<div class=\"clear\"></div>\n";
 		$html .= "</div>\n";
-		
-		return $html;	
+
+		return $html;
 
 
 	// Language switch
 	// Set cookie and redirect
 	} else if($file == "language") {
 		if(!isset($_COOKIE['language'])) {
-			setcookie("language", "en");	
+			setcookie("language", "en");
 		} else if($_COOKIE['language'] == "no") {
-			setcookie("language", "en"); 
+			setcookie("language", "en");
 		} else {
-			setcookie("language", "no"); 
+			setcookie("language", "no");
 		}
 
 		$returl = $_SERVER['HTTP_REFERER'];
@@ -123,7 +123,7 @@ function get_gallery() {
 
 	class bilde {
 		var $tittel_no, $tittel_en, $filnavn, $beskrivelse_no, $beskrivelse_en;
-	}		
+	}
 
 	function startTag($parser, $data) {
 		global $current_tag;
@@ -159,7 +159,7 @@ function get_gallery() {
 		}
 	}
 
-	
+
 	function pro_charset_hax ($data, $encode = true) {
 		$STUPID = Array(
 			"æ" => "__aelig__",
@@ -169,24 +169,24 @@ function get_gallery() {
 			"Ø" => "__Oslash__",
 			"Å" => "__Aring__"
 		);
-		
+
 		foreach ($STUPID as $from => $to) {
 			$data = $encode ? str_replace($from, $to, $data) : str_replace($to, $from, $data);
 		}
 
 		return $data;
 	}
-	
+
 	$parser = xml_parser_create();
 	xml_set_element_handler($parser, "startTag", "endTag");
 	xml_set_character_data_handler($parser, "contents");
-	xml_parser_set_option($parser, XML_OPTION_TARGET_ENCODING, 'UTF-8');	
+	xml_parser_set_option($parser, XML_OPTION_TARGET_ENCODING, 'UTF-8');
 
 	$fp = fopen($file, "r") or die("failed to open file");
 	$data = fread($fp, filesize($file)) or die("failed to read file");
 	$data = pro_charset_hax($data);
-	if(!(xml_parse($parser, $data, feof($fp)))){ 
-    	die("Error on line " . xml_get_current_line_number($parser) ."\n"); 
+	if(!(xml_parse($parser, $data, feof($fp)))){
+    	die("Error on line " . xml_get_current_line_number($parser) ."\n");
 	}
 	xml_parse($parser, $data);
 

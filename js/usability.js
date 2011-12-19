@@ -4,23 +4,23 @@
  */
 
 // Define default font sizes to be used with the setFonts
-var normal = { 
-			 "p":"0.9", 
+var normal = {
+			 "p":"0.9",
 			"td":"0.9",
-			"h1":"3", 
-			"h2":"1.5", 
+			"h1":"3",
+			"h2":"1.5",
 			"th":"1.5",
 			"h3":"1.2",
 	  "#cv-head":"1.1"
 }
 
 /*
- * Takes argument m as multiplication. Iterates through defined 
+ * Takes argument m as multiplication. Iterates through defined
  * font sizes to increase the size and readability at the site.
  */
 function setFonts (m) {
 	for (var j in normal) {
-		$(j).each(function(el) { 
+		$(j).each(function(el) {
 			$(this).get(0).style.fontSize = (normal[j] * m) + "em"
 		});
 	}
@@ -36,7 +36,7 @@ function getUrlVars() {
 	if (v.length == 0) {
 		return;
 	}
-	
+
 	var args = v.shift().split('/');
 	return args;
 }
@@ -48,28 +48,28 @@ function getUrlVars() {
 function whiterabbit() {
 	$('table').each(function(i) {
 		$(this).find('tr').each(function(j) {
-		
+
 			if (j % 2 != 0) {
 				$(this).css('background', '#303033');
 			}
-		
+
 			$(this).find('th').each(function(k) {
 				if (k % 2 != 0) {
 					$(this).css('text-align', 'right');
 				}
 			});
-			
+
 			$(this).find('td').each(function(k) {
 				if (k % 2 != 0) {
 					$(this).css('text-align', 'right');
 				}
 			});
-		}); 
+		});
 	});
 }
 
 /*
- * Loads the specified page into the content div. Falls back on loading the 
+ * Loads the specified page into the content div. Falls back on loading the
  * homepage if an error occurs (or the page doesn't exist).
  */
 function loadContent(page) {
@@ -83,16 +83,16 @@ function loadContent(page) {
 				 		whiterabbit();
 				 	}
 				 });
-				 			 
+
 	// Recurse and fallback to home if the page is not found.
 	if (status == 'error') {
 		return loadContent('hjem');
 	}
-	
+
 	// Make the menu items highlight the section we're currently in
 	$('.selected').attr('className', '');
 	$('#' + page).attr('className', 'selected');
-	
+
 	// If we're in the CV, perform hacks for IE
 }
 
@@ -126,10 +126,10 @@ $(document).ready(function() {
 		a.innerHTML = 'A';
 		li.appendChild(a);
 	}
-	
+
 	// Insert this first thing in the wrap div.
 	$('#wrap').get(0).insertBefore(ul, $('#wrap').get(0).firstChild);
-	
+
 	// The same goes for the selection
 	var li = document.createElement('li');
 	var a = document.createElement('a');
@@ -140,7 +140,7 @@ $(document).ready(function() {
 	$('#menu').add(li);
 	$('#menu').get(0).insertBefore(li, $('#menu li').get($('#menu').find('li').length-1)); // Hackish...
 	$('#menu').css('width', '48em').css('padding-left', '3em');
-		
+
 	// Add on click handler for the font size changer.
 	$('#font-sizer li a').click(function(e) {
 		e.preventDefault();
@@ -152,24 +152,24 @@ $(document).ready(function() {
 			setFonts(1.5);
 		}
 	});
-	
+
 	// Make the menu actually do something, except the langauge
-	$('#menu li a').click(function(e) {	
+	$('#menu li a').click(function(e) {
 		e.preventDefault();
 		if (this.id == 'language') {
 			changeLanguage();
 		} else {
 			// We don't want to jump to any anchors in the page, thus...
 			location.href = location.href.split("#").shift() + "#" + this.id;
-			
+
 			// Load based on content
 			loadContent(this.id);
 		}
 	});
-	
+
 	// Finally load content based on the specified arguments passed in the URL.
 	var args = getUrlVars();
 	loadContent(args != undefined && args[0] != '' ? args[0] : 'hjem');
 });
 
- 
+

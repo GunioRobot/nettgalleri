@@ -1,8 +1,8 @@
 /**
- * Gallery functions. 
+ * Gallery functions.
  */
 
-// Global variables 
+// Global variables
 var image = 0; // The current image shown
 var images = {}; // A new JSON object, to contain information about all available images.
 var args = getUrlVars();
@@ -52,7 +52,7 @@ function _display(img) {
 	if (img.complete) {
 		$('#image').show();
 	} else {
-		setTimeout(function() { 
+		setTimeout(function() {
 			_display(img);
 		}, 100);
 	}
@@ -79,23 +79,23 @@ function display() {
 	$('#image').hide();
 
 	// Current language with fallback to Norwegian
-	var lang = $.cookie("language") || "no"; 
-	
+	var lang = $.cookie("language") || "no";
+
 	// Updates the page elements with the image data.
 	$('#imgtitle').get(0).innerHTML = images.bilde[image].tittel[lang];
 	$('#imgnum').get(0).innerHTML = parseInt(image) + 1 + " / " + images.bilde.length;
 	$('#description').get(0).innerHTML = images.bilde[image].beskrivelse[lang];
-	
+
 	// We have to update the selection text if the image is added in our selection.
 	var selText = $.cookie("language") == "en" ? "Add to selection" : "Legg til utvalg";
 	if (isImageInSelection()) {
 		selText = $.cookie("language") == "en" ? "Deselect" : "Fjern fra utvalg";
 	}
 	$('#favourite').get(0).innerHTML = selText;
-	
-	// Fix the URL to provide a nice 
+
+	// Fix the URL to provide a nice
 	writeURL();
-	
+
 	// Call for the waiter function to load the image fully before displaying it.
 	_display(img);
 }
@@ -139,18 +139,18 @@ function toggleSelection() {
 	var elements = _getSelectionElements();
 	if (isImageInSelection(elements)) {
 		// We have already added the image to the selection, remove it then.
-		
+
 		// index HAS to be > -1, or something's screwed with isImageInSelection
 		var index = elements.indexOf(getFilename(image));
-		
+
 		// Remove the element
 		elements.splice(index, 1);
 		$.cookie("aweSelection", elements.join(":"));
-		
+
 		if (args[0] == 'utvalg') {
 			// If we're in the selection, we have to remove it from the images array and go to the next image
 			images.bilde.splice(image, 1);
-			
+
 			if (images.bilde.length > 0) {
 				if (image == images.bilde.length) {
 					previous();
@@ -166,12 +166,12 @@ function toggleSelection() {
 			}
 		} else {
 			$('#favourite').get(0).innerHTML = $.cookie("language") == "en" ? "Add to selection" : "Legg til utvalg";
-			
+
 		}
 	} else {
 		// We have not added the image to the selection, add it.
 		elements.push(getFilename(image));
-		
+
 		$('#favourite').get(0).innerHTML = $.cookie("language") == "en" ? "Deselect" : "Fjern fra utvalg";
 		$.cookie("aweSelection", elements.join(":"));
 	}
@@ -186,13 +186,13 @@ function _getSelectionElements() {
 	if (elements[0] == '') {
 		elements.shift();
 	}
-	
+
 	return elements;
 }
 
-function isImageInSelection(elements) {	
+function isImageInSelection(elements) {
 	elements = elements != undefined ? elements : _getSelectionElements();
-	
+
 	for (var i = 0; i < elements.length; i++) {
 		if (elements[i] != '' && elements[i] == getFilename(image)) {
 			return true;
@@ -211,7 +211,7 @@ function generateShareURL() {
 	if (sel == '') {
 		return '';
 	}
-	return $.base64Encode(sel);	
+	return $.base64Encode(sel);
 }
 
 function getShareURL() {
@@ -225,7 +225,7 @@ $('html').keydown(function(e) {
 		next();
 	} else if (key == 37) {
 		previous();
-	} 
+	}
 });
 
 // Global variable to be used with the "fullscreen" mode.
@@ -237,19 +237,19 @@ $(document).ready(function() {
 		e.preventDefault();
 		toggleSelection();
 	});
-	
-	// Handler for the zoom in function. 
+
+	// Handler for the zoom in function.
 	$('#imgwrap a, #zoomin').click(function(e) {
 		fullscreen = !fullscreen;
 		$('#layout').get(0).className = fullscreen ? 'fullscreen' : 'normal';
 	});
-	
+
 	// Handler for when the next image button is clicked.
-	$('#next').click(function(e) { 
+	$('#next').click(function(e) {
 		e.preventDefault();
 		next()
 	});
-	
+
 	// Handler for when the previous image button is clicked
 	$('#prev').click(function(e) {
 		e.preventDefault();
@@ -262,14 +262,14 @@ $(document).ready(function() {
 		prompt(msg, getShareURL());
 	});
 
-	// Let's load the image information in the page. 
+	// Let's load the image information in the page.
 	$.get("bilder.xml", function(xml) {
 		images = $.xml2json(xml);
 		if (args[0] == 'utvalg') {
 			if (args[2] != undefined) {
 				loadSelection();
 			}
-		
+
 			var elements = _getSelectionElements();
 			var i = 0;
 			while (i < images.bilde.length) {
@@ -279,7 +279,7 @@ $(document).ready(function() {
 						found = true;
 					}
 				}
-				
+
 				if (!found) {
 					images.bilde.splice(i, 1);
 				} else {
@@ -287,7 +287,7 @@ $(document).ready(function() {
 				}
 			}
 		}
-		
+
 		if (images.bilde.length == 0) {
 			// If we have no images in the selection, we have to tell the user about it.
 			$('#layout').hide();

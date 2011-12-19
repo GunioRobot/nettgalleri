@@ -1,26 +1,26 @@
 
 /**
  * jQuery BASE64 functions
- * 
+ *
  * 	<code>
- * 		Encodes the given data with base64. 
+ * 		Encodes the given data with base64.
  * 		String $.base64Encode ( String str )
  *		<br />
  * 		Decodes a base64 encoded data.
  * 		String $.base64Decode ( String str )
  * 	</code>
- * 
+ *
  * Encodes and Decodes the given data in base64.
  * This encoding is designed to make binary data survive transport through transport layers that are not 8-bit clean, such as mail bodies.
- * Base64-encoded data takes about 33% more space than the original data. 
+ * Base64-encoded data takes about 33% more space than the original data.
  * This javascript code is used to encode / decode data using base64 (this encoding is designed to make binary data survive transport through transport layers that are not 8-bit clean). Script is fully compatible with UTF-8 encoding. You can use base64 encoded data as simple encryption mechanism.
- * If you plan using UTF-8 encoding in your project don't forget to set the page encoding to UTF-8 (Content-Type meta tag). 
+ * If you plan using UTF-8 encoding in your project don't forget to set the page encoding to UTF-8 (Content-Type meta tag).
  * This function orginally get from the WebToolkit and rewrite for using as the jQuery plugin.
- * 
+ *
  * Example
  * 	Code
  * 		<code>
- * 			$.base64Encode("I'm Persian."); 
+ * 			$.base64Encode("I'm Persian.");
  * 		</code>
  * 	Result
  * 		<code>
@@ -34,7 +34,7 @@
  * 		<code>
  * 			"I'm Persian."
  * 		</code>
- * 
+ *
  * @alias Muhammad Hussein Fattahizadeh < muhammad [AT] semnanweb [DOT] com >
  * @link http://www.semnanweb.com/jquery-plugin/base64.html
  * @see http://www.webtoolkit.info/
@@ -45,9 +45,9 @@
  */
 
 (function($){
-	
+
 	var keyString = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
-	
+
 	var uTF8Encode = function(string) {
 		string = string.replace(/\x0d\x0a/g, "\x0a");
 		var output = "";
@@ -66,7 +66,7 @@
 		}
 		return output;
 	};
-	
+
 	var uTF8Decode = function(input) {
 		var string = "";
 		var i = 0;
@@ -89,7 +89,7 @@
 		}
 		return string;
 	}
-	
+
 	$.extend({
 		base64Encode: function(input) {
 			var output = "";

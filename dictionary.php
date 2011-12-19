@@ -95,7 +95,7 @@ $dictionary["review1"] = array("no" => "Kunst For Alle", "en" => "Kunst For Alle
 $dictionary["review2"] = array("no" => "Østlandets blad - Utstilling", "en" => "Østlandets blad - Exhibit");
 $dictionary["more"] = array("no" => "Flere innlegg", "en" => "More reviews");
 
-$dictionary["r1p1"] = array("no" => "Margrethe Hauglie-Hanssen maler følsomme kvinneprotretter. De er anonmyme og samtidig deg og meg og alle kvinner i hele verden. 
+$dictionary["r1p1"] = array("no" => "Margrethe Hauglie-Hanssen maler følsomme kvinneprotretter. De er anonmyme og samtidig deg og meg og alle kvinner i hele verden.
 Vi møter oss selv og alle turbulente følelser i hennes billedserie. Ordnet og satt i scene gir de oss mot og styrke til å våge nærkontakt med egne, ufordøyde minner.", "en" => "Margrethe Hauglie-Hanssen paints sensitive portraits of women. They are anonymous, but at the same time you, me and all other women in the world. We meet ourselves and all intense feelings in her gallery. Ordered and placed in scene, they give us courage and strength to close up to our own memories.");
 $dictionary["r1p2"] = array("no" => "Utdrag fra tidsskrift \"Kunst For Alle\" - Aase Rostad", "en" => "Extract from paper \"Kunst For Alle\" - Aase Rostad");
 $dictionary["r2p1"] = array("no" => "12 billedkunstnere fra Follo har fylt opp veggene i Drøbak Varmbad denne sommeren. Utstillingen åpner lørdag 28. juni 2008.", "en" => "This summer 12 picture artists from Follo have filled up the walls in \"Drøbak Varmbad\". The exhibit opens saturday, 28th of June, 2008.");

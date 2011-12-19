@@ -16,14 +16,14 @@
 */
 // Avoid collisions
 ;if(window.jQuery) (function($){
- 
+
  // Add function to jQuery namespace
  $.extend({
-  
+
   // converts xml documents and xml text to json object
   xml2json: function(xml, extended) {
    if(!xml) return {}; // quick fail
-   
+
    //### PARSER LIBRARY
    // Core function
    function parseXML(node, simple){
@@ -118,27 +118,27 @@
    };
    // Utility functions End
    //### PARSER LIBRARY END
-   
+
    // Convert plain text to xml
    if(typeof xml=='string') xml = $.text2xml(xml);
-   
+
    // Quick fail if not xml (or if this is a node)
    if(!xml.nodeType) return;
    if(xml.nodeType == 3 || xml.nodeType == 4) return xml.nodeValue;
-   
+
    // Find xml root node
    var root = (xml.nodeType == 9) ? xml.documentElement : xml;
-   
+
    // Convert xml to json
    var out = parseXML(root, true /* simple */);
-   
+
    // Clean-up memory
    xml = null; root = null;
-   
+
    // Send output
    return out;
   },
-  
+
   // Convert text to XML DOM
   text2xml: function(str) {
    // NOTE: I'd like to use jQuery for this, but jQuery makes all tags uppercase
@@ -154,7 +154,7 @@
    }catch(e){ throw new Error("Error parsing XML string") };
    return out;
   }
-		
+
  }); // extend $
 
 })(jQuery);

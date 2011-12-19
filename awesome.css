@@ -37,7 +37,7 @@ a {
 
 /* Fix for IE and Firefox */
 img {
-	border: none;	
+	border: none;
 }
 
 #wrap {
@@ -56,7 +56,7 @@ img {
 #menu li {
 	float: left;
 	list-style: none;
-	
+
 }
 
 #menu li:not(:last-child) a {
@@ -172,7 +172,7 @@ hr {
 }
 
 #layout.fullscreen {
-	
+
 }
 
 #layout.fullscreen #sidebar {
@@ -275,7 +275,7 @@ hr {
 }
 
 .cv th, .cv td {
-	
+
 }
 
 .cv td {
